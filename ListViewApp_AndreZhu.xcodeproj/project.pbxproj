@@ -7,21 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF0530E81ECA990A0077BF0F /* descriptions.rtf in Resources */ = {isa = PBXBuildFile; fileRef = EF0530E71ECA990A0077BF0F /* descriptions.rtf */; };
 		EF0920711EC15BD100297ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0920701EC15BD100297ADF /* AppDelegate.swift */; };
 		EF0920731EC15BD100297ADF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0920721EC15BD100297ADF /* ViewController.swift */; };
-		EF0920761EC15BD100297ADF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0920741EC15BD100297ADF /* Main.storyboard */; };
 		EF0920781EC15BD100297ADF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0920771EC15BD100297ADF /* Assets.xcassets */; };
 		EF09207B1EC15BD100297ADF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0920791EC15BD100297ADF /* LaunchScreen.storyboard */; };
+		EF0920831EC15FE700297ADF /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0920821EC15FE700297ADF /* TableViewController.swift */; };
+		EF0920851EC1617B00297ADF /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0920841EC1617B00297ADF /* TableViewCell.swift */; };
+		EF1426C21EC4093E00DBBA71 /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1426C11EC4093E00DBBA71 /* DetailPageViewController.swift */; };
+		EF26B34C1EC53E0A00AB2E80 /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF26B34B1EC53E0A00AB2E80 /* File.strings */; };
+		EF341F6D1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF341F6B1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodeld */; };
+		EF3D280F1ECD1F9300D42E8C /* moviepics in Resources */ = {isa = PBXBuildFile; fileRef = EF3D280E1ECD1F9300D42E8C /* moviepics */; };
+		EF5245D51ECBE824005F90F1 /* movies.txt in Resources */ = {isa = PBXBuildFile; fileRef = EF5245D41ECBE824005F90F1 /* movies.txt */; };
+		EF611BF41EEF6EA1003BA928 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF611BF31EEF6EA1003BA928 /* CartViewController.swift */; };
+		EF611BF61EEF6FC5003BA928 /* CheckoutTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF611BF51EEF6FC5003BA928 /* CheckoutTableView.swift */; };
+		EF611BF81EEF6FE1003BA928 /* TotalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF611BF71EEF6FE1003BA928 /* TotalsView.swift */; };
+		EFC932271ECA87170066609C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC932251ECA87170066609C /* Main.storyboard */; };
+		EFCAC3541EDFB29B007D3018 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCAC3531EDFB29B007D3018 /* ToDoItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF0530E71ECA990A0077BF0F /* descriptions.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = descriptions.rtf; sourceTree = "<group>"; };
 		EF09206D1EC15BD100297ADF /* ListViewApp_AndreZhu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListViewApp_AndreZhu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0920701EC15BD100297ADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF0920721EC15BD100297ADF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EF0920751EC15BD100297ADF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF0920771EC15BD100297ADF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF09207A1EC15BD100297ADF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF09207C1EC15BD100297ADF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF0920821EC15FE700297ADF /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		EF0920841EC1617B00297ADF /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		EF1426C11EC4093E00DBBA71 /* DetailPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
+		EF26B34B1EC53E0A00AB2E80 /* File.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = File.strings; sourceTree = "<group>"; };
+		EF341F6C1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListViewApp_AndreZhu.xcdatamodel; sourceTree = "<group>"; };
+		EF3D280E1ECD1F9300D42E8C /* moviepics */ = {isa = PBXFileReference; lastKnownFileType = folder; path = moviepics; sourceTree = "<group>"; };
+		EF5245D41ECBE824005F90F1 /* movies.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = movies.txt; sourceTree = "<group>"; };
+		EF611BF31EEF6EA1003BA928 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		EF611BF51EEF6FC5003BA928 /* CheckoutTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutTableView.swift; sourceTree = "<group>"; };
+		EF611BF71EEF6FE1003BA928 /* TotalsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalsView.swift; sourceTree = "<group>"; };
+		EFC932261ECA87170066609C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EFCAC3531EDFB29B007D3018 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +78,24 @@
 		EF09206F1EC15BD100297ADF /* ListViewApp_AndreZhu */ = {
 			isa = PBXGroup;
 			children = (
+				EFC932251ECA87170066609C /* Main.storyboard */,
+				EF611BF51EEF6FC5003BA928 /* CheckoutTableView.swift */,
+				EF611BF71EEF6FE1003BA928 /* TotalsView.swift */,
+				EF611BF31EEF6EA1003BA928 /* CartViewController.swift */,
 				EF0920701EC15BD100297ADF /* AppDelegate.swift */,
+				EF341F6B1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodeld */,
 				EF0920721EC15BD100297ADF /* ViewController.swift */,
-				EF0920741EC15BD100297ADF /* Main.storyboard */,
+				EF0920821EC15FE700297ADF /* TableViewController.swift */,
+				EF0920841EC1617B00297ADF /* TableViewCell.swift */,
+				EF1426C11EC4093E00DBBA71 /* DetailPageViewController.swift */,
+				EFCAC3531EDFB29B007D3018 /* ToDoItem.swift */,
 				EF0920771EC15BD100297ADF /* Assets.xcassets */,
 				EF0920791EC15BD100297ADF /* LaunchScreen.storyboard */,
 				EF09207C1EC15BD100297ADF /* Info.plist */,
+				EF26B34B1EC53E0A00AB2E80 /* File.strings */,
+				EF5245D41ECBE824005F90F1 /* movies.txt */,
+				EF0530E71ECA990A0077BF0F /* descriptions.rtf */,
+				EF3D280E1ECD1F9300D42E8C /* moviepics */,
 			);
 			path = ListViewApp_AndreZhu;
 			sourceTree = "<group>";
@@ -123,9 +159,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF26B34C1EC53E0A00AB2E80 /* File.strings in Resources */,
+				EF5245D51ECBE824005F90F1 /* movies.txt in Resources */,
 				EF09207B1EC15BD100297ADF /* LaunchScreen.storyboard in Resources */,
 				EF0920781EC15BD100297ADF /* Assets.xcassets in Resources */,
-				EF0920761EC15BD100297ADF /* Main.storyboard in Resources */,
+				EFC932271ECA87170066609C /* Main.storyboard in Resources */,
+				EF0530E81ECA990A0077BF0F /* descriptions.rtf in Resources */,
+				EF3D280F1ECD1F9300D42E8C /* moviepics in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,28 +176,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF1426C21EC4093E00DBBA71 /* DetailPageViewController.swift in Sources */,
 				EF0920731EC15BD100297ADF /* ViewController.swift in Sources */,
+				EFCAC3541EDFB29B007D3018 /* ToDoItem.swift in Sources */,
+				EF0920851EC1617B00297ADF /* TableViewCell.swift in Sources */,
+				EF611BF41EEF6EA1003BA928 /* CartViewController.swift in Sources */,
+				EF611BF81EEF6FE1003BA928 /* TotalsView.swift in Sources */,
+				EF0920831EC15FE700297ADF /* TableViewController.swift in Sources */,
 				EF0920711EC15BD100297ADF /* AppDelegate.swift in Sources */,
+				EF341F6D1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodeld in Sources */,
+				EF611BF61EEF6FC5003BA928 /* CheckoutTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EF0920741EC15BD100297ADF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EF0920751EC15BD100297ADF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EF0920791EC15BD100297ADF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EF09207A1EC15BD100297ADF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EFC932251ECA87170066609C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFC932261ECA87170066609C /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -299,8 +347,22 @@
 				EF0920811EC15BD100297ADF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EF341F6B1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EF341F6C1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodel */,
+			);
+			currentVersion = EF341F6C1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodel */;
+			path = ListViewApp_AndreZhu.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EF0920651EC15BD100297ADF /* Project object */;
 }
