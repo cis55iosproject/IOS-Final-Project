@@ -17,9 +17,11 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     var searchResultsDict = [String: [ToDoItemMO]]()
     var searchResultsTitles = [String]()
     var searchController : UISearchController!
-    
+    var searchSettings: SearchSettings!
     var listObjDict = [String: [ToDoItemMO]]()
     var listObjTitles = [String]()
+    
+    
     
     var fetchResultsController : NSFetchedResultsController<ToDoItemMO>!
     
@@ -71,6 +73,12 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         }
         
         setupSections()
+        
+        
+        //Search settings stuff
+        searchSettings = SearchSettings()
+        searchSettings.authorSearch = true
+        searchSettings.titleSearch = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -159,15 +167,35 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     //Search Stuff
     
     func filterContentForSearchText(searchText: String){
-        searchResults = listObjects.filter({ (item: ToDoItemMO) ->
-            Bool in
-            let nameMatch = item.title?.range(of: searchText, options: String.CompareOptions.caseInsensitive)
-            return nameMatch != nil
-        })
+        var currentSearchResults = searchByBoth(searchText: searchText)
         
+        searchResults = currentSearchResults
         searchResultsDict = createAlphaDict(objList: searchResults)
         searchResultsTitles = createTitles(objDict: searchResultsDict)
     }
+    
+    func searchByBoth(searchText: String) -> [ToDoItemMO]{
+        var results: [ToDoItemMO]
+        let authorSearch = searchSettings.authorSearch
+        let titleSearch = searchSettings.titleSearch
+        results = listObjects.filter({ (item: ToDoItemMO) ->
+            Bool in
+            var contains = false
+            if authorSearch{
+                let titleMatch = item.author?.range(of: searchText, options: String.CompareOptions.caseInsensitive)
+                contains = contains || titleMatch != nil
+            }
+            if titleSearch{
+                let titleMatch = item.title?.range(of: searchText, options: String.CompareOptions.caseInsensitive)
+                contains = contains || titleMatch != nil
+            }
+            
+            return contains
+        })
+        
+        return results
+    }
+    
     
     func updateSearchResults(for searchController: UISearchController) {
         if let textToSearch = searchController.searchBar.text{

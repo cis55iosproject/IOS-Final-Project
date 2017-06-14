@@ -16,6 +16,8 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var itemAuthor: UITextView!
     @IBOutlet weak var itemPrice: UITextView!
     
+    let priceFormat = "$%.02f";
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,5 +27,10 @@ class TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func addPrice(newPrice: Double){
+        let stringPrice = String(format: priceFormat, locale: Locale.current, arguments: [newPrice])
+        itemPrice.text = stringPrice
     }
 }
