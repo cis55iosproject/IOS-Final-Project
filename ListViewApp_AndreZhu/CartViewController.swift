@@ -46,7 +46,13 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    func addBookToCart(book : ToDoItemMO){
+        print("Added book to list")
+        booksInCart.append(book)
+        cartTableView.reloadData()
+        
+    }
     
     
     
