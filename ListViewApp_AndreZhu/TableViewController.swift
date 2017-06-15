@@ -37,10 +37,14 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         //for reloading the data from scratch
-        /*
-        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ToDoItemMO")
+
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ToDoItem")
         let request = NSBatchDeleteRequest(fetchRequest: fetch)
-        */
+        do{
+            let result = try appDel.persistentContainer.viewContext.execute(request)
+        } catch{
+            print("delete failed")
+        }
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         self.searchController = UISearchController(searchResultsController: nil)
@@ -213,10 +217,10 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     
     
     func createArrays() {
-        let TSVCount = 9
+        let TSVCount = 8
         let TITLE = 0
         let AUTHOR = 1
-        let DESC = 8
+        let DESC = 7
         let PRICE = 5
         
         
@@ -250,17 +254,22 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
                     newItem.title = components[TITLE]
                     newItem.author = components[AUTHOR]
                     newItem.desc = components[DESC]
-                    newItem.price = Double(components[PRICE])!
+                    newItem.price = Double(components[PRICE].trimmingCharacters(in: .whitespaces))!
                     newItem.rating = 0.0
-                    //let imagePath = Bundle.main.path(forResource: components[1], ofType: "jpg", inDirectory: "moviepics")
+                    //let imagePath = Bundle.main.path(forResource: "Book " + String(count), ofType: "png")
+                    let imagePath = "Book " + String(count)
                     //newItem.image = NSData(data: UIImagePNGRepresentation(UIImage(contentsOfFile: imagePath!)!)!)
-                    newItem.image = NSData(contentsOfFile: "Book " + String(count) + ".png")
+                    newItem.image = NSData(data: UIImagePNGRepresentation(UIImage(named: imagePath)!)!)
                     
                     
-                    
+                    print("made new object")
                     appDelegate.saveContext()
                     listObjects.append(newItem)
+                    count += 1
                 
+                }
+                else{
+                    print("Misformatted line")
                 }
             }
         }
