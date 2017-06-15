@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class TableViewController: UITableViewController, UISearchResultsUpdating, NSFetchedResultsControllerDelegate {
+class TableViewController: UITableViewController, UISearchResultsUpdating, NSFetchedResultsControllerDelegate,XMLParserDelegate {
     @IBOutlet weak var tableItem: TableViewCell!
     
     var listObjects : [ToDoItemMO] = []
@@ -21,7 +21,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     var listObjDict = [String: [ToDoItemMO]]()
     var listObjTitles = [String]()
     
-    
+    var appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var fetchResultsController : NSFetchedResultsController<ToDoItemMO>!
     
@@ -37,9 +37,10 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         //for reloading the data from scratch
+        /*
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ToDoItemMO")
         let request = NSBatchDeleteRequest(fetchRequest: fetch)
-        
+        */
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         self.searchController = UISearchController(searchResultsController: nil)
@@ -79,6 +80,11 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         searchSettings = SearchSettings()
         searchSettings.authorSearch = true
         searchSettings.titleSearch = true
+        
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            appDel = appDelegate
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -206,7 +212,15 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     
     
     func createArrays() {
-        let fileContents = Bundle.main.path(forResource: "movies", ofType: "txt")
+        let TSVCount = 9
+        let TITLE = 0
+        let AUTHOR = 1
+        let DESC = 8
+        let PRICE = 5
+        
+        
+
+        let fileContents = Bundle.main.path(forResource: "books", ofType: "tsv")
         var text = ""
         do{
             try text = String(contentsOfFile: fileContents!, encoding: String.Encoding.utf8)
@@ -218,9 +232,10 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         let itemArr = text.components(separatedBy: "\n")
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
             let context = appDelegate.persistentContainer.viewContext
+            var count = 1
             for var item in itemArr{
-                var components = item.components(separatedBy: " | ")
-                if components.count == 3{
+                var components = item.components(separatedBy: "\t")
+                if components.count == TSVCount{
                 /*
                 tableItems.append(components[0])
                 tableItemDescriptions.append(components[2])
@@ -231,13 +246,16 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
                 
                     let newItem = ToDoItemMO(context: context)
                     
-                    newItem.title = components[0]
-                    newItem.desc = components[2]
-                    
-                    let imagePath = Bundle.main.path(forResource: components[1], ofType: "jpg", inDirectory: "moviepics")
-                    newItem.image = NSData(data: UIImagePNGRepresentation(UIImage(contentsOfFile: imagePath!)!)!)
-                    
+                    newItem.title = components[TITLE]
+                    newItem.author = components[AUTHOR]
+                    newItem.desc = components[DESC]
+                    newItem.price = Double(components[PRICE])!
                     newItem.rating = 0.0
+                    //let imagePath = Bundle.main.path(forResource: components[1], ofType: "jpg", inDirectory: "moviepics")
+                    //newItem.image = NSData(data: UIImagePNGRepresentation(UIImage(contentsOfFile: imagePath!)!)!)
+                    newItem.image = NSData(contentsOfFile: "Book " + String(count) + ".png")
+                    
+                    
                     
                     appDelegate.saveContext()
                     listObjects.append(newItem)
@@ -247,6 +265,85 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         }
         
     }
+    /*
+    //XML parsing stuff
+    let TITLEPOS = 0
+    let AUTHORPOS = 1
+    let PRICEPOS = 5
+    
+    
+    var currItem: ToDoItemMO = ToDoItemMO(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+    var colPos = 0
+    var rowPos = 0
+    var itemTitle = ""
+    var itemAuthor = ""
+    var itemPrice = ""
+    
+    func resetXMLInfo(){
+        currItem = ToDoItemMO(context: appDel.persistentContainer.viewContext)
+        currItem.rating = 0.0
+        currItem.image = NSData(contentsOfFile: "Book " + String(rowPos+1) + ".png")
+        currItem.desc = ""
+        colPos = 0
+        itemTitle = ""
+        itemAuthor = ""
+        itemPrice = ""
+    }
+    
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        if elementName == "Row"{
+            resetXMLInfo()
+        }
+    }
+    
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if elementName == "Data"{
+            colPos += 1
+        }
+        else if elementName == "Row"{
+            listObjects.append(currItem)
+            appDel.saveContext()
+            rowPos += 1
+        }
+    }
+    
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        addCharacter(nextChar: string, column: colPos)
+    }
+    
+    func addCharacter(nextChar: String, column: Int){
+        switch(column){
+        case TITLEPOS:
+            itemTitle += nextChar
+            break
+        case AUTHORPOS:
+            itemAuthor += nextChar
+            break
+        case PRICEPOS:
+            itemPrice += nextChar
+            break
+        default:
+            break
+        }
+    }
+    
+    func pushProperty(column:Int){
+        switch(column){
+        case TITLEPOS:
+            currItem.title = itemTitle
+            break
+        case AUTHORPOS:
+            currItem.author = itemAuthor
+            break
+        case PRICEPOS:
+            currItem.price = Double(itemPrice)!
+            break
+        default:
+            break
+        }
+    }
+ */
+    
     
     func setupSections(){
         //create items dict
