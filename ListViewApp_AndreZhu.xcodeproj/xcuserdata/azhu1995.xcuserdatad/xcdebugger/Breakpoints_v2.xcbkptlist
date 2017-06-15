@@ -88,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListViewApp_AndreZhu/TableViewController.swift"
-            timestampString = "519101450.40496"
+            timestampString = "519187734.265458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "createArrays()"
             landmarkType = "7">
          </BreakpointContent>
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListViewApp_AndreZhu/TableViewController.swift"
-            timestampString = "519101450.40496"
+            timestampString = "519187734.265458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "353"
+            endingLineNumber = "353"
             landmarkName = "setupSections()"
             landmarkType = "7">
          </BreakpointContent>
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListViewApp_AndreZhu/TableViewController.swift"
-            timestampString = "519101450.40496"
+            timestampString = "519187734.265458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
             landmarkName = "setupSections()"
             landmarkType = "7">
          </BreakpointContent>
@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListViewApp_AndreZhu/TableViewController.swift"
-            timestampString = "519101450.40496"
+            timestampString = "519187734.265458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
             landmarkName = "createTitles(objDict:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -184,11 +184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListViewApp_AndreZhu/TableViewController.swift"
-            timestampString = "519180583.949321"
+            timestampString = "519187734.265458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "328"
-            endingLineNumber = "328"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
             landmarkName = "TableViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ListViewApp_AndreZhu/TableViewController.swift"
-            timestampString = "519181296.724919"
+            timestampString = "519187734.265458"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "TableViewController"
             landmarkType = "3">
          </BreakpointContent>

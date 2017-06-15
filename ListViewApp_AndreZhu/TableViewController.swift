@@ -70,6 +70,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         }
         
         if listObjects.count == 0{
+            print("blah")
             createArrays()
         }
         
