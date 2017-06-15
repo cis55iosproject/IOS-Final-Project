@@ -28,16 +28,17 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         cartTableView.delegate = self
         cartTableView.dataSource = self
-        
-        let appDelegate = (UIApplication.shared.delegate as? AppDelegate)
-        let context = appDelegate?.persistentContainer.viewContext
-        var testItem : ToDoItemMO = ToDoItemMO(context :context!)
-        testItem.author = "Testauthor"
-        testItem.desc = "testDesc"
-        //testItem.image = UIImage(data: cellItem)
-        testItem.rating = 5
-        testItem.title = "TestTitle"
-        booksInCart.append(testItem)
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            let context = appDelegate.persistentContainer.viewContext
+            var testItem : ToDoItemMO = ToDoItemMO(context :context)
+            testItem.author = "Testauthor"
+            testItem.desc = "testDesc"
+            //testItem.image = UIImage(data: cellItem)
+            testItem.rating = 5
+            testItem.title = "TestTitle"
+            booksInCart.append(testItem)
+        }
+ 
     }
 
     override func didReceiveMemoryWarning() {
