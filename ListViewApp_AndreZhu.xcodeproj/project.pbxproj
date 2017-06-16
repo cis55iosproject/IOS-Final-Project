@@ -23,12 +23,12 @@
 		EF611BF41EEF6EA1003BA928 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF611BF31EEF6EA1003BA928 /* CartViewController.swift */; };
 		EF611BF61EEF6FC5003BA928 /* CheckoutTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF611BF51EEF6FC5003BA928 /* CheckoutTableView.swift */; };
 		EF611BF81EEF6FE1003BA928 /* TotalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF611BF71EEF6FE1003BA928 /* TotalsView.swift */; };
+		EF6685D81EF345F100721FFD /* books.tsv in Resources */ = {isa = PBXBuildFile; fileRef = EF6685D71EF345F100721FFD /* books.tsv */; };
 		EF8750AA1EF0BBF700B4BFB7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8750A91EF0BBF700B4BFB7 /* SettingsViewController.swift */; };
 		EF8750AC1EF0BF8500B4BFB7 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8750AB1EF0BF8500B4BFB7 /* SettingsItem.swift */; };
 		EF8750AE1EF0C42200B4BFB7 /* SearchSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8750AD1EF0C42200B4BFB7 /* SearchSettings.swift */; };
 		EF8750B01EF0CFAA00B4BFB7 /* SettingsOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8750AF1EF0CFAA00B4BFB7 /* SettingsOptionCell.swift */; };
 		EF8750B21EF0CFFF00B4BFB7 /* SearchOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8750B11EF0CFFF00B4BFB7 /* SearchOptionsController.swift */; };
-		EFC92A311EF32B8900658632 /* books.tsv in Resources */ = {isa = PBXBuildFile; fileRef = EFC92A301EF32B8900658632 /* books.tsv */; };
 		EFC932271ECA87170066609C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC932251ECA87170066609C /* Main.storyboard */; };
 		EFCAC3541EDFB29B007D3018 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCAC3531EDFB29B007D3018 /* ToDoItem.swift */; };
 /* End PBXBuildFile section */
@@ -52,12 +52,12 @@
 		EF611BF31EEF6EA1003BA928 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		EF611BF51EEF6FC5003BA928 /* CheckoutTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutTableView.swift; sourceTree = "<group>"; };
 		EF611BF71EEF6FE1003BA928 /* TotalsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalsView.swift; sourceTree = "<group>"; };
+		EF6685D71EF345F100721FFD /* books.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = books.tsv; sourceTree = "<group>"; };
 		EF8750A91EF0BBF700B4BFB7 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EF8750AB1EF0BF8500B4BFB7 /* SettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
 		EF8750AD1EF0C42200B4BFB7 /* SearchSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSettings.swift; sourceTree = "<group>"; };
 		EF8750AF1EF0CFAA00B4BFB7 /* SettingsOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsOptionCell.swift; sourceTree = "<group>"; };
 		EF8750B11EF0CFFF00B4BFB7 /* SearchOptionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsController.swift; sourceTree = "<group>"; };
-		EFC92A301EF32B8900658632 /* books.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = books.tsv; path = ../../../Downloads/books.tsv; sourceTree = "<group>"; };
 		EFC932261ECA87170066609C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFCAC3531EDFB29B007D3018 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,7 +115,7 @@
 				EF26B34B1EC53E0A00AB2E80 /* File.strings */,
 				EF5245D41ECBE824005F90F1 /* movies.txt */,
 				EF0530E71ECA990A0077BF0F /* descriptions.rtf */,
-				EFC92A301EF32B8900658632 /* books.tsv */,
+				EF6685D71EF345F100721FFD /* books.tsv */,
 				EF3D280E1ECD1F9300D42E8C /* moviepics */,
 			);
 			path = ListViewApp_AndreZhu;
@@ -182,12 +182,12 @@
 			files = (
 				EF26B34C1EC53E0A00AB2E80 /* File.strings in Resources */,
 				EF5245D51ECBE824005F90F1 /* movies.txt in Resources */,
-				EFC92A311EF32B8900658632 /* books.tsv in Resources */,
 				EF09207B1EC15BD100297ADF /* LaunchScreen.storyboard in Resources */,
 				EF0920781EC15BD100297ADF /* Assets.xcassets in Resources */,
 				EFC932271ECA87170066609C /* Main.storyboard in Resources */,
 				EF0530E81ECA990A0077BF0F /* descriptions.rtf in Resources */,
 				EF3D280F1ECD1F9300D42E8C /* moviepics in Resources */,
+				EF6685D81EF345F100721FFD /* books.tsv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

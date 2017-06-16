@@ -18,6 +18,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     var searchResultsTitles = [String]()
     var searchController : UISearchController!
     var searchSettings: SearchSettings!
+    
     var listObjDict = [String: [ToDoItemMO]]()
     var listObjTitles = [String]()
     
@@ -55,18 +56,20 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         self.tableView.tableHeaderView = self.searchController.searchBar
         
         let fetchRequest: NSFetchRequest<ToDoItemMO> = ToDoItemMO.fetchRequest()
+        
+        let sectionDescriptor = NSSortDescriptor(key: "sectionTitle", ascending: true)
         let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.sortDescriptors = [sectionDescriptor, sortDescriptor]
         
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
             let context = appDelegate.persistentContainer.viewContext
-            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "sectionTitle", cacheName: nil)
             fetchResultsController.delegate = self
             
             do {
                 try fetchResultsController.performFetch()
                 if let fetchedObjects = fetchResultsController.fetchedObjects {
-                    listObjects = fetchedObjects
+                    reloadDict(objList: fetchedObjects)
                 }
             } catch{
                 print(error)
@@ -74,11 +77,9 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         }
         
         if listObjects.count == 0{
-            print("blah")
             createArrays()
         }
-        
-        setupSections()
+        reloadDict(objList: listObjects)
         
         
         //Search settings stuff
@@ -86,10 +87,8 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         searchSettings.authorSearch = true
         searchSettings.titleSearch = true
         
+    
         
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
-            appDel = appDelegate
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -170,11 +169,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return searchController.isActive ? searchResultsTitles[section] : listObjTitles[section]
     }
-    
-    
-    func addData(newItem: ToDoItemMO){
-        listObjects.append(newItem)
-    }
+
     //Search Stuff
     
     func filterContentForSearchText(searchText: String){
@@ -251,7 +246,10 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
                 
                     let newItem = ToDoItemMO(context: context)
                     
-                    newItem.title = components[TITLE]
+                    let title = components[TITLE]
+                    
+                    newItem.title = title
+                    newItem.sectionTitle = String(title[(title.startIndex)])
                     newItem.author = components[AUTHOR]
                     newItem.desc = components[DESC]
                     newItem.price = Double(components[PRICE].trimmingCharacters(in: .whitespaces))!
@@ -354,24 +352,12 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     }
  */
     
+
     
-    func setupSections(){
-        //create items dict
-        for var listObject in listObjects{
-            let title = listObject.title!
-            let listKey = String(title[(title.startIndex)])
-            
-            if var listValues = listObjDict[listKey]{
-                listValues.append(listObject)
-                listObjDict[listKey] = listValues
-            }
-            else{
-                listObjDict[listKey] = [listObject]
-            }
-        }
-        
-        listObjTitles = [String](listObjDict.keys)
-        listObjTitles.sort()
+    func reloadDict(objList: [ToDoItemMO]){
+        listObjects = objList
+        listObjDict = createAlphaDict(objList: objList)
+        listObjTitles = createTitles(objDict: listObjDict)
     }
     
     func createAlphaDict(objList: [ToDoItemMO]) -> [String: [ToDoItemMO]]{
@@ -407,30 +393,49 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         tableView.beginUpdates()
     }
     
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .left)
+        case .delete:
+            tableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .right)
+        case .move:
+            break
+        case .update:
+            break
+        }
+    }
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
+            print("insert before")
             if let newIndexPath = newIndexPath{
-                tableView.insertRows(at: [newIndexPath], with: .fade)
+                print("insert after")
+                tableView.insertRows(at: [newIndexPath], with: .left)
             }
         case .delete:
+            print("delete before")
             if let indexPath = indexPath{
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.deleteRows(at: [indexPath], with: .right)
             }
         case .update:
+            print("update before")
             if let indexPath = indexPath{
-                tableView.reloadRows(at: [indexPath], with: .fade)
+                tableView.reloadRows(at: [indexPath], with: .left)
             }
         default:
+            print("default")
             tableView.reloadData()
         }
         
         if let fetchedObjects = controller.fetchedObjects{
-            listObjects = fetchedObjects as! [ToDoItemMO]
+            reloadDict(objList: fetchedObjects as! [ToDoItemMO])
         }
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
         tableView.endUpdates()
     }
     
