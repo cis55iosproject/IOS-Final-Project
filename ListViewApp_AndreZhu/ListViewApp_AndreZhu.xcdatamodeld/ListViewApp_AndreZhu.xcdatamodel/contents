@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="SearchSettings" representedClassName="SearchSettingsMO" syncable="YES" codeGenerationType="class">
+        <attribute name="author" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="ToDoItem" representedClassName="ToDoItemMO" syncable="YES" codeGenerationType="class">
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="desc" attributeType="String" syncable="YES"/>
@@ -11,5 +15,6 @@
     </entity>
     <elements>
         <element name="ToDoItem" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="SearchSettings" positionX="-63" positionY="36" width="128" height="75"/>
     </elements>
 </model>

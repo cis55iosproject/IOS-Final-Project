@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 class SearchOptionsController: UITableViewController {
-
+    let TITLE = 0
+    let AUTHOR = 1
+    
+    var settingsItem: SearchSettingsMO!
+    var settingsDetail: SettingsItem!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,23 +36,38 @@ class SearchOptionsController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return settingsDetail.sectionTitles.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return settingsDetail.sectionTitles[section]
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return settingsDetail.optionsList.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchOption", for: indexPath) as! SearchOptionCell
+        
+        cell.optionText.text = settingsDetail.optionsList[indexPath.row]
         // Configure the cell...
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == TITLE{
+            settingsItem.title = !settingsItem.title
+        }
+        else if indexPath.row == AUTHOR{
+            settingsItem.author = !settingsItem.author
+        }
+        
+    }
+
 
     /*
     // Override to support conditional editing of the table view.

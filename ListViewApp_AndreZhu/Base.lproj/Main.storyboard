@@ -14,20 +14,20 @@
         <scene sceneID="czW-oE-Arz">
             <objects>
                 <tableViewController id="Q3h-U0-Q1H" customClass="TableViewController" customModule="ListViewApp_AndreZhu" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="119" sectionHeaderHeight="28" sectionFooterHeight="28" id="IaW-ku-tvd">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" id="IaW-ku-tvd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableItem" rowHeight="119" id="yWQ-0R-lCv" customClass="TableViewCell" customModule="ListViewApp_AndreZhu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="119"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableItem" rowHeight="160" id="yWQ-0R-lCv" customClass="TableViewCell" customModule="ListViewApp_AndreZhu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yWQ-0R-lCv" id="vv0-69-0XS">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8AE-JV-ufd">
-                                            <rect key="frame" x="8" y="8" width="110" height="102"/>
+                                            <rect key="frame" x="8" y="8" width="110" height="143"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q17-GD-uLA">
@@ -73,9 +73,7 @@
                             <barButtonItem title="List" id="USs-VK-OcF"/>
                             <barButtonItem title="Settings" id="Hce-va-jW1">
                                 <connections>
-                                    <segue destination="MuW-67-Jal" kind="popoverPresentation" popoverAnchorBarButtonItem="Hce-va-jW1" id="tII-Z9-v1r">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="MuW-67-Jal" kind="show" identifier="ShowSettings" id="5tv-Q3-a2x"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -85,22 +83,34 @@
             </objects>
             <point key="canvasLocation" x="840.79999999999995" y="62.518740629685162"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Search Options Controller-->
         <scene sceneID="wYC-hS-a38">
             <objects>
-                <tableViewController id="Yxl-Au-NqL" customClass="SettingsViewController" customModule="ListViewApp_AndreZhu" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Yxl-Au-NqL" customClass="SearchOptionsController" customModule="ListViewApp_AndreZhu" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="N9j-W4-GCe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="S3l-rR-HXr" customClass="SettingsOptionCell" customModule="ListViewApp_AndreZhu" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchOption" id="S3l-rR-HXr" customClass="SearchOptionCell" customModule="ListViewApp_AndreZhu" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S3l-rR-HXr" id="neU-nU-FZP">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VxX-gm-67T">
+                                            <rect key="frame" x="26" y="0.0" width="222" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="optionText" destination="VxX-gm-67T" id="63w-Q6-buB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -111,12 +121,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5kg-Yc-naS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="834"/>
+            <point key="canvasLocation" x="-156" y="833.43328335832086"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="hU9-58-BYm">
             <objects>
-                <viewController id="MuW-67-Jal" sceneMemberID="viewController">
+                <viewController id="MuW-67-Jal" customClass="SettingsViewController" customModule="ListViewApp_AndreZhu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HqT-V8-k3r"/>
                         <viewControllerLayoutGuide type="bottom" id="OUu-97-3PB"/>
@@ -126,11 +136,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="48" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Foe-4G-f19">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="295"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchSettings" rowHeight="48" id="MG4-ZH-iPf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchSettings" rowHeight="48" id="MG4-ZH-iPf" customClass="SettingCell" customModule="ListViewApp_AndreZhu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="56" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MG4-ZH-iPf" id="saI-so-Q1x">
@@ -147,7 +157,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Yxl-Au-NqL" kind="show" id="ldQ-M4-S6r"/>
+                                            <outlet property="title" destination="cWK-tC-Si5" id="cwo-CV-eQT"/>
+                                            <segue destination="Yxl-Au-NqL" kind="show" identifier="ShowSearchSettings" id="ldQ-M4-S6r"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

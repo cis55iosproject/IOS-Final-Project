@@ -11,9 +11,13 @@ import UIKit
 class SettingsItem: NSObject {
     var optionsList = [String]()
     var type = ""
+    var title = ""
+    var sectionTitles = [""]
     
-    init(settingsOptions: [String], settingsType: String){
+    init(settingsOptions: [String], settingsType: String, settingsTitle: String, secTitles: [String]){
         self.optionsList = settingsOptions
         self.type = settingsType
+        self.title = settingsTitle
+        self.sectionTitles = secTitles
     }
 }

@@ -24,6 +24,8 @@
 		EF611BF61EEF6FC5003BA928 /* CheckoutTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF611BF51EEF6FC5003BA928 /* CheckoutTableView.swift */; };
 		EF611BF81EEF6FE1003BA928 /* TotalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF611BF71EEF6FE1003BA928 /* TotalsView.swift */; };
 		EF6685D81EF345F100721FFD /* books.tsv in Resources */ = {isa = PBXBuildFile; fileRef = EF6685D71EF345F100721FFD /* books.tsv */; };
+		EF6685DA1EF3722F00721FFD /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6685D91EF3722F00721FFD /* SettingCell.swift */; };
+		EF6685DE1EF377D000721FFD /* SearchOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6685DD1EF377D000721FFD /* SearchOptionCell.swift */; };
 		EF8750AA1EF0BBF700B4BFB7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8750A91EF0BBF700B4BFB7 /* SettingsViewController.swift */; };
 		EF8750AC1EF0BF8500B4BFB7 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8750AB1EF0BF8500B4BFB7 /* SettingsItem.swift */; };
 		EF8750AE1EF0C42200B4BFB7 /* SearchSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8750AD1EF0C42200B4BFB7 /* SearchSettings.swift */; };
@@ -53,6 +55,8 @@
 		EF611BF51EEF6FC5003BA928 /* CheckoutTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutTableView.swift; sourceTree = "<group>"; };
 		EF611BF71EEF6FE1003BA928 /* TotalsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalsView.swift; sourceTree = "<group>"; };
 		EF6685D71EF345F100721FFD /* books.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = books.tsv; sourceTree = "<group>"; };
+		EF6685D91EF3722F00721FFD /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		EF6685DD1EF377D000721FFD /* SearchOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionCell.swift; sourceTree = "<group>"; };
 		EF8750A91EF0BBF700B4BFB7 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EF8750AB1EF0BF8500B4BFB7 /* SettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
 		EF8750AD1EF0C42200B4BFB7 /* SearchSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSettings.swift; sourceTree = "<group>"; };
@@ -94,10 +98,7 @@
 			children = (
 				EFC932251ECA87170066609C /* Main.storyboard */,
 				64E659E71EF20AF3006343B1 /* CartTableView.swift */,
-				EF8750B11EF0CFFF00B4BFB7 /* SearchOptionsController.swift */,
-				EF8750AF1EF0CFAA00B4BFB7 /* SettingsOptionCell.swift */,
-				EF8750A91EF0BBF700B4BFB7 /* SettingsViewController.swift */,
-				EF8750AB1EF0BF8500B4BFB7 /* SettingsItem.swift */,
+				EF6685DC1EF375A800721FFD /* Settings */,
 				EF611BF51EEF6FC5003BA928 /* CheckoutTableView.swift */,
 				EF611BF71EEF6FE1003BA928 /* TotalsView.swift */,
 				EF611BF31EEF6EA1003BA928 /* CartViewController.swift */,
@@ -105,7 +106,6 @@
 				EF341F6B1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodeld */,
 				EF0920721EC15BD100297ADF /* ViewController.swift */,
 				EF0920821EC15FE700297ADF /* TableViewController.swift */,
-				EF8750AD1EF0C42200B4BFB7 /* SearchSettings.swift */,
 				EF0920841EC1617B00297ADF /* TableViewCell.swift */,
 				EF1426C11EC4093E00DBBA71 /* DetailPageViewController.swift */,
 				EFCAC3531EDFB29B007D3018 /* ToDoItem.swift */,
@@ -119,6 +119,20 @@
 				EF3D280E1ECD1F9300D42E8C /* moviepics */,
 			);
 			path = ListViewApp_AndreZhu;
+			sourceTree = "<group>";
+		};
+		EF6685DC1EF375A800721FFD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EF8750B11EF0CFFF00B4BFB7 /* SearchOptionsController.swift */,
+				EF6685DD1EF377D000721FFD /* SearchOptionCell.swift */,
+				EF8750AD1EF0C42200B4BFB7 /* SearchSettings.swift */,
+				EF8750AF1EF0CFAA00B4BFB7 /* SettingsOptionCell.swift */,
+				EF8750A91EF0BBF700B4BFB7 /* SettingsViewController.swift */,
+				EF8750AB1EF0BF8500B4BFB7 /* SettingsItem.swift */,
+				EF6685D91EF3722F00721FFD /* SettingCell.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,9 +224,11 @@
 				EF611BF41EEF6EA1003BA928 /* CartViewController.swift in Sources */,
 				EF611BF81EEF6FE1003BA928 /* TotalsView.swift in Sources */,
 				64E659E81EF20AF3006343B1 /* CartTableView.swift in Sources */,
+				EF6685DA1EF3722F00721FFD /* SettingCell.swift in Sources */,
 				EF0920831EC15FE700297ADF /* TableViewController.swift in Sources */,
 				EF0920711EC15BD100297ADF /* AppDelegate.swift in Sources */,
 				EF341F6D1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodeld in Sources */,
+				EF6685DE1EF377D000721FFD /* SearchOptionCell.swift in Sources */,
 				EF611BF61EEF6FC5003BA928 /* CheckoutTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

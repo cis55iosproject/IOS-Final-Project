@@ -17,7 +17,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     var searchResultsDict = [String: [ToDoItemMO]]()
     var searchResultsTitles = [String]()
     var searchController : UISearchController!
-    var searchSettings: SearchSettings!
+    var searchSettings: SearchSettingsMO!
     
     var listObjDict = [String: [ToDoItemMO]]()
     var listObjTitles = [String]()
@@ -25,6 +25,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     var appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var fetchResultsController : NSFetchedResultsController<ToDoItemMO>!
+    var searchTypeController : NSFetchedResultsController<SearchSettingsMO>!
     
     
     override func viewDidLoad() {
@@ -48,12 +49,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         }
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
-        self.searchController = UISearchController(searchResultsController: nil)
-        self.searchController.searchBar.sizeToFit()
-        self.searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.searchResultsUpdater = self
-        self.searchController.dimsBackgroundDuringPresentation = false
-        self.tableView.tableHeaderView = self.searchController.searchBar
+        setupSearchController()
         
         let fetchRequest: NSFetchRequest<ToDoItemMO> = ToDoItemMO.fetchRequest()
         
@@ -75,6 +71,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
                 print(error)
             }
         }
+        grabSearchSettiings()
         
         if listObjects.count == 0{
             createArrays()
@@ -83,12 +80,36 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         
         
         //Search settings stuff
-        searchSettings = SearchSettings()
-        searchSettings.authorSearch = true
-        searchSettings.titleSearch = true
         
     
         
+    }
+    
+    func setupSearchController(){
+        self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController.searchBar.sizeToFit()
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.searchResultsUpdater = self
+        self.searchController.dimsBackgroundDuringPresentation = false
+        self.tableView.tableHeaderView = self.searchController.searchBar
+    }
+    
+    func grabSearchSettiings(){
+        let fetchRequest: NSFetchRequest<SearchSettingsMO> = SearchSettingsMO.fetchRequest()
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            let context = appDelegate.persistentContainer.viewContext
+            searchTypeController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            searchTypeController.delegate = self
+            
+            do {
+                try searchTypeController.performFetch()
+                if let fetchedObjects = searchTypeController.fetchedObjects {
+                    searchSettings = fetchedObjects[0]
+                }
+            } catch{
+                print(error)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -182,8 +203,8 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     
     func searchByBoth(searchText: String) -> [ToDoItemMO]{
         var results: [ToDoItemMO]
-        let authorSearch = searchSettings.authorSearch
-        let titleSearch = searchSettings.titleSearch
+        let authorSearch = searchSettings.author
+        let titleSearch = searchSettings.title
         results = listObjects.filter({ (item: ToDoItemMO) ->
             Bool in
             var contains = false
@@ -511,6 +532,9 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
                     descriptionVC.tableVC = self
                 }
             }
+        }
+        else if segue.identifier == "ShowSettings"{
+            let descriptionVC = segue.destination as! SettingsViewController
         }
     }
 
