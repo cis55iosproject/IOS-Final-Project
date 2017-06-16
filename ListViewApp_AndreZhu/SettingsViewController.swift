@@ -41,7 +41,6 @@ class SettingsViewController: UITableViewController {
         
         settingsList.append(settingsItem)
         setDefault()
-        reloadCells()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,11 +61,30 @@ class SettingsViewController: UITableViewController {
     }
     
     func reloadCells(){
-        let titleCell = tableView.cellForRow(at: titleIndexPath)
-        titleCell?.accessoryType = settingsItem.title ? .checkmark : .none
-        
-        let authorCell = tableView.cellForRow(at: authorIndexPath)
-        authorCell?.accessoryType = settingsItem.author ? .checkmark : .none
+        reloadCell(index: TITLE)
+        reloadCell(index: AUTHOR)
+    }
+    func reloadCell(cell: SettingCell){
+        //looks exactly the same as the index based reloadCell but this method works around the cellForRowAt issue
+        let index = cell.index
+        if index == TITLE{
+            cell.accessoryType = settingsItem.title ? .checkmark : .none
+        }
+        else if index == AUTHOR{
+            cell.accessoryType = settingsItem.author ? .checkmark : .none
+        }
+
+    }
+    
+    func reloadCell(index: Int){
+        if index == TITLE{
+            let titleCell = tableView.cellForRow(at: titleIndexPath)
+            titleCell?.accessoryType = settingsItem.title ? .checkmark : .none
+        }
+        else if index == AUTHOR{
+            let authorCell = tableView.cellForRow(at: authorIndexPath)
+            authorCell?.accessoryType = settingsItem.author ? .checkmark : .none
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,6 +92,8 @@ class SettingsViewController: UITableViewController {
         let cellItem = settingsList[indexPath.section]
         
         cell.title.text = cellItem.optionsList[indexPath.row]
+        cell.index = indexPath.row
+        reloadCell(cell: cell)
         // Configure the cell...
 
         return cell

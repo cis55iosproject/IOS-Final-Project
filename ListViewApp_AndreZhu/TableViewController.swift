@@ -91,6 +91,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         self.searchController.hidesNavigationBarDuringPresentation = false
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
+        
         self.tableView.tableHeaderView = self.searchController.searchBar
     }
     

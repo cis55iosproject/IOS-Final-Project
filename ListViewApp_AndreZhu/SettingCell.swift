@@ -12,6 +12,7 @@ class SettingCell: UITableViewCell {
 
     
     @IBOutlet weak var title: UITextView!
+    var index = -1
     
     override func awakeFromNib() {
         super.awakeFromNib()
