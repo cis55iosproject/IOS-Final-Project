@@ -15,7 +15,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var cartTableView : UITableView!
     var booksInCart : [ToDoItemMO] = []
     
-    let cellReuseIdentifier = "cell"
+    let cellReuseIdentifier = "TableItem"
     
     
     
@@ -24,10 +24,13 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Do any additional setup after loading the view.
         
-        self.cartTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        self.cartTableView.register(TableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
 
+        
         cartTableView.delegate = self
         cartTableView.dataSource = self
+        
+        /*
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
             let context = appDelegate.persistentContainer.viewContext
             var testItem : ToDoItemMO = ToDoItemMO(context :context)
@@ -37,7 +40,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             testItem.rating = 5
             testItem.title = "TestTitle"
             booksInCart.append(testItem)
-        }
+        }*/
+        
  
     }
 
@@ -50,7 +54,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     func addBookToCart(book : ToDoItemMO){
         print("Added book to list")
         booksInCart.append(book)
-        cartTableView.reloadData()
+        //cartTableView.reloadData()
         
     }
     
@@ -89,8 +93,9 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
          */
         
         cellItem = booksInCart[indexPath.row]
-        //cell.itemImage.image = #imageLiteral(resourceName: "boyhood.jpg")//UIImage(data: cellItem.image as! Data)
-        cell.itemText?.text = cellItem.title
+        cell.itemImage?.image = UIImage(data: cellItem.image as! Data)
+        cell.itemText?.text = cellItem.title!
+        cell.itemAuthor?.text = cellItem.author
         
         return cell
     }
@@ -119,7 +124,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
          else{
          return 0
          }*/
-        
+        print("Code is running")
         return booksInCart.count
         
     }
@@ -127,8 +132,14 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
+        
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int{
+        print("Number of sections running")
+        return 1
+        
+    }
 
     /*
     // MARK: - Navigation
