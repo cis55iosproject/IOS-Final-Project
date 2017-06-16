@@ -13,6 +13,8 @@ class SearchOptionsController: UITableViewController {
     let TITLE = 0
     let AUTHOR = 1
     
+    let defaultIndexPath: IndexPath = IndexPath(row: 0, section: 0)
+    
     var settingsItem: SearchSettingsMO!
     var settingsDetail: SettingsItem!
     
@@ -59,6 +61,11 @@ class SearchOptionsController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let cell = tableView.cellForRow(at: indexPath){
+            cell.accessoryType = cell.accessoryType == .checkmark ? .none : .checkmark
+        }
+        
         if indexPath.row == TITLE{
             settingsItem.title = !settingsItem.title
         }
@@ -66,6 +73,22 @@ class SearchOptionsController: UITableViewController {
             settingsItem.author = !settingsItem.author
         }
         
+        if !settingsItem.title && !settingsItem.author{
+            //sets default value (to avoid it being possible to search by no categories)
+            setDefault()
+        }
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            appDelegate.saveContext()
+        }
+        
+    }
+    
+    func setDefault(){
+        if let cell = tableView.cellForRow(at: defaultIndexPath){
+            cell.accessoryType = .checkmark
+            settingsItem.title = true
+        }
     }
 
 

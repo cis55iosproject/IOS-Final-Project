@@ -96,6 +96,8 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     
     func grabSearchSettiings(){
         let fetchRequest: NSFetchRequest<SearchSettingsMO> = SearchSettingsMO.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
             let context = appDelegate.persistentContainer.viewContext
             searchTypeController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
@@ -104,7 +106,14 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
             do {
                 try searchTypeController.performFetch()
                 if let fetchedObjects = searchTypeController.fetchedObjects {
-                    searchSettings = fetchedObjects[0]
+                    if fetchedObjects.count == 0{
+                        searchSettings = SearchSettingsMO(context: context)
+                        searchSettings.title = true
+                        searchSettings.author = false
+                        appDelegate.saveContext()
+                    }else{
+                        searchSettings = fetchedObjects[0]
+                    }
                 }
             } catch{
                 print(error)
@@ -182,6 +191,8 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
             cellItem = objValues[indexPath.row]
             cell.itemImage?.image = UIImage(data: cellItem.image as! Data)
             cell.itemText?.text = cellItem.title
+            cell.itemAuthor?.text = cellItem.author
+            cell.addPrice(newPrice: cellItem.price)
         }
 
         return cell
@@ -415,43 +426,87 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        switch type {
-        case .insert:
-            tableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .left)
-        case .delete:
-            tableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .right)
-        case .move:
-            break
-        case .update:
-            break
+        let className = controller.fetchRequest.entity?.managedObjectClassName
+        if className == "ToDoItemMO"{
+            switch type {
+            case .insert:
+                tableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .left)
+            case .delete:
+                tableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .right)
+            case .move:
+                break
+            case .update:
+                break
+            }
+        }
+        else if className == "SearchSettingsMO"{
+            //nothing to be done regarding sections
+        }
+        else{
+            print("unused class: " + className!)
         }
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .insert:
-            print("insert before")
-            if let newIndexPath = newIndexPath{
-                print("insert after")
-                tableView.insertRows(at: [newIndexPath], with: .left)
+        let className = controller.fetchRequest.entity?.managedObjectClassName
+        if className == "ToDoItemMO"{
+            switch type {
+            case .insert:
+                print("insert before")
+                if let newIndexPath = newIndexPath{
+                    print("insert after")
+                    tableView.insertRows(at: [newIndexPath], with: .left)
+                }
+            case .delete:
+                print("delete before")
+                if let indexPath = indexPath{
+                    tableView.deleteRows(at: [indexPath], with: .right)
+                }
+            case .update:
+                print("update before")
+                if let indexPath = indexPath{
+                    tableView.reloadRows(at: [indexPath], with: .left)
+                }
+            default:
+                print("default")
+                tableView.reloadData()
             }
-        case .delete:
-            print("delete before")
-            if let indexPath = indexPath{
-                tableView.deleteRows(at: [indexPath], with: .right)
+            
+            if let fetchedObjects = controller.fetchedObjects{
+                reloadDict(objList: fetchedObjects as! [ToDoItemMO])
             }
-        case .update:
-            print("update before")
-            if let indexPath = indexPath{
-                tableView.reloadRows(at: [indexPath], with: .left)
-            }
-        default:
-            print("default")
-            tableView.reloadData()
         }
-        
-        if let fetchedObjects = controller.fetchedObjects{
-            reloadDict(objList: fetchedObjects as! [ToDoItemMO])
+        else if className == "SearchSettingsMO"{
+            /*
+            switch type {
+            case .insert:
+                print("insert before")
+                if let newIndexPath = newIndexPath{
+                    print("insert after")
+                    tableView.insertRows(at: [newIndexPath], with: .left)
+                }
+            case .delete:
+                print("delete before")
+                if let indexPath = indexPath{
+                    tableView.deleteRows(at: [indexPath], with: .right)
+                }
+            case .update:
+                print("update before")
+                if let indexPath = indexPath{
+                    tableView.reloadRows(at: [indexPath], with: .left)
+                }
+            default:
+                print("default")
+                tableView.reloadData()
+            }
+             
+ */
+            if let fetchedObjects = searchTypeController.fetchedObjects {
+                searchSettings = fetchedObjects[0]
+            }
+        }
+        else{
+            print("unused class: " + className!)
         }
     }
     
@@ -535,6 +590,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         }
         else if segue.identifier == "ShowSettings"{
             let descriptionVC = segue.destination as! SettingsViewController
+            descriptionVC.settingsItem = searchSettings
         }
     }
 

@@ -10,6 +10,15 @@ import UIKit
 import CoreData
 
 class SettingsViewController: UITableViewController {
+    let TITLE = 0
+    let AUTHOR = 1
+    
+    let defaultIndexPath: IndexPath = IndexPath(row: 0, section: 0)
+    var titleIndexPath : IndexPath! = nil
+    var authorIndexPath : IndexPath! = nil
+    
+    var settingsItem: SearchSettingsMO!
+    var settingsDetail: SettingsItem!
     
     var settingsList = [SettingsItem]()
 
@@ -22,14 +31,17 @@ class SettingsViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        titleIndexPath = IndexPath(row: TITLE, section: 0)
+        authorIndexPath = IndexPath(row: AUTHOR, section: 0)
         
         //hard coded settings item since theres only one needed (currently)
         let options = ["Title (Default)", "Author"]
-        let title = "Search Settings"
-        let secTitles = ["Search By"]
-        var settingsItem = SettingsItem(settingsOptions: options, settingsType: "", settingsTitle: title, secTitles: secTitles)
+        let title = "Search By"
+        var settingsItem = SettingsItem(settingsOptions: options, settingsType: "", settingsTitle: title)
         
         settingsList.append(settingsItem)
+        setDefault()
+        reloadCells()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,22 +53,59 @@ class SettingsViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return settingsList.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return settingsList.count
+        return settingsList[section].optionsList.count
+    }
+    
+    func reloadCells(){
+        let titleCell = tableView.cellForRow(at: titleIndexPath)
+        titleCell?.accessoryType = settingsItem.title ? .checkmark : .none
+        
+        let authorCell = tableView.cellForRow(at: authorIndexPath)
+        authorCell?.accessoryType = settingsItem.author ? .checkmark : .none
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! SettingCell
-        let cellItem = settingsList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingCell", for: indexPath) as! SettingCell
+        let cellItem = settingsList[indexPath.section]
         
-        cell.title.text = cellItem.title
+        cell.title.text = cellItem.optionsList[indexPath.row]
         // Configure the cell...
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return settingsList[section].title
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == TITLE{
+            settingsItem.title = !settingsItem.title
+        }
+        else if indexPath.row == AUTHOR{
+            settingsItem.author = !settingsItem.author
+        }
+        
+        setDefault()
+        reloadCells()
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            appDelegate.saveContext()
+        }
+        
+    }
+    
+    func setDefault(){
+        if !settingsItem.title && !settingsItem.author{
+            //sets default value (to avoid it being possible to search by no categories)
+            settingsItem.title = true
+        }
     }
 
     /*
@@ -101,12 +150,7 @@ class SettingsViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "ShowSearchSettings"{
-            if let indexPath = self.tableView.indexPathForSelectedRow{
-                let dest = segue.destination as! SearchOptionsController
-                dest.settingsDetail = settingsList[indexPath.row]
-            }
-        }
+        
     }
 
 }

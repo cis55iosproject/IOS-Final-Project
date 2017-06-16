@@ -10,6 +10,7 @@ import UIKit
 
 class SettingCell: UITableViewCell {
 
+    
     @IBOutlet weak var title: UITextView!
     
     override func awakeFromNib() {

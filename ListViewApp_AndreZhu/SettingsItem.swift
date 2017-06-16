@@ -12,12 +12,10 @@ class SettingsItem: NSObject {
     var optionsList = [String]()
     var type = ""
     var title = ""
-    var sectionTitles = [""]
     
-    init(settingsOptions: [String], settingsType: String, settingsTitle: String, secTitles: [String]){
+    init(settingsOptions: [String], settingsType: String, settingsTitle: String){
         self.optionsList = settingsOptions
         self.type = settingsType
         self.title = settingsTitle
-        self.sectionTitles = secTitles
     }
 }
