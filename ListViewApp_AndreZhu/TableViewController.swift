@@ -12,19 +12,19 @@ import CoreData
 class TableViewController: UITableViewController, UISearchResultsUpdating, NSFetchedResultsControllerDelegate,XMLParserDelegate {
     @IBOutlet weak var tableItem: TableViewCell!
     
-    var listObjects : [ToDoItemMO] = []
-    var searchResults : [ToDoItemMO] = []
-    var searchResultsDict = [String: [ToDoItemMO]]()
+    var listObjects : [CatalogItemMO] = []
+    var searchResults : [CatalogItemMO] = []
+    var searchResultsDict = [String: [CatalogItemMO]]()
     var searchResultsTitles = [String]()
     var searchController : UISearchController!
     var searchSettings: SearchSettingsMO!
     
-    var listObjDict = [String: [ToDoItemMO]]()
+    var listObjDict = [String: [CatalogItemMO]]()
     var listObjTitles = [String]()
     
     var appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    var fetchResultsController : NSFetchedResultsController<ToDoItemMO>!
+    var fetchResultsController : NSFetchedResultsController<CatalogItemMO>!
     var searchTypeController : NSFetchedResultsController<SearchSettingsMO>!
     
     
@@ -40,8 +40,8 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         
         //for reloading the data from scratch
 
-        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ToDoItem")
-        let request = NSBatchDeleteRequest(fetchRequest: fetch)
+        let fetch : NSFetchRequest<ToDoItemMO> = ToDoItemMO.fetchRequest()
+        let request = NSBatchDeleteRequest(fetchRequest: fetch as! NSFetchRequest<NSFetchRequestResult>)
         do{
             let result = try appDel.persistentContainer.viewContext.execute(request)
         } catch{
@@ -51,7 +51,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         
         setupSearchController()
         
-        let fetchRequest: NSFetchRequest<ToDoItemMO> = ToDoItemMO.fetchRequest()
+        let fetchRequest: NSFetchRequest<CatalogItemMO> = CatalogItemMO.fetchRequest()
         
         let sectionDescriptor = NSSortDescriptor(key: "sectionTitle", ascending: true)
         let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
@@ -146,7 +146,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        var objDict : [String:[ToDoItemMO]]
+        var objDict : [String:[CatalogItemMO]]
         var objTitles : [String]
         var objKey : String
         
@@ -174,8 +174,8 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TableViewCell
 
         // Configure the cell...
-        var cellItem : ToDoItemMO
-        var objDict : [String:[ToDoItemMO]]
+        var cellItem : CatalogItemMO
+        var objDict : [String:[CatalogItemMO]]
         var objTitles : [String]
         var objKey : String
         
@@ -190,7 +190,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         objKey = objTitles[indexPath.section]
         if let objValues = objDict[objKey]{
             cellItem = objValues[indexPath.row]
-            cell.itemImage?.image = UIImage(data: cellItem.image as! Data)
+            cell.itemImage?.image = UIImage(data: cellItem.image! as Data)
             cell.itemText?.text = cellItem.title
             cell.itemAuthor?.text = cellItem.author
             cell.addPrice(newPrice: cellItem.price)
@@ -213,11 +213,11 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         searchResultsTitles = createTitles(objDict: searchResultsDict)
     }
     
-    func searchByBoth(searchText: String) -> [ToDoItemMO]{
-        var results: [ToDoItemMO]
+    func searchByBoth(searchText: String) -> [CatalogItemMO]{
+        var results: [CatalogItemMO]
         let authorSearch = searchSettings.author
         let titleSearch = searchSettings.title
-        results = listObjects.filter({ (item: ToDoItemMO) ->
+        results = listObjects.filter({ (item: CatalogItemMO) ->
             Bool in
             var contains = false
             if authorSearch{
@@ -277,7 +277,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
                 tableImages.append(UIImage(contentsOfFile: imagePath!)!)
  */
                 
-                    let newItem = ToDoItemMO(context: context)
+                    let newItem = CatalogItemMO(context: context)
                     
                     let title = components[TITLE]
                     
@@ -387,14 +387,14 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     
 
     
-    func reloadDict(objList: [ToDoItemMO]){
+    func reloadDict(objList: [CatalogItemMO]){
         listObjects = objList
         listObjDict = createAlphaDict(objList: objList)
         listObjTitles = createTitles(objDict: listObjDict)
     }
     
-    func createAlphaDict(objList: [ToDoItemMO]) -> [String: [ToDoItemMO]]{
-        var dictionary = [String: [ToDoItemMO]]()
+    func createAlphaDict(objList: [CatalogItemMO]) -> [String: [CatalogItemMO]]{
+        var dictionary = [String: [CatalogItemMO]]()
         for var listObject in objList{
             let title = listObject.title!
             let listKey = String(title[(title.startIndex)])
@@ -411,7 +411,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         return dictionary
     }
     
-    func createTitles(objDict: [String: [ToDoItemMO]]) -> [String]{
+    func createTitles(objDict: [String: [CatalogItemMO]]) -> [String]{
         var objTitles = [String](objDict.keys)
         objTitles.sort()
         return objTitles
@@ -427,8 +427,8 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        let className = controller.fetchRequest.entity?.managedObjectClassName
-        if className == "ToDoItemMO"{
+        let eName = controller.fetchRequest.entityName
+        if eName == "CatalogItem"{
             switch type {
             case .insert:
                 tableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .left)
@@ -440,17 +440,17 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
                 break
             }
         }
-        else if className == "SearchSettingsMO"{
+        else if eName == "SearchSettings"{
             //nothing to be done regarding sections
         }
         else{
-            print("unused class: " + className!)
+            print("unused entity: " + eName!)
         }
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        let className = controller.fetchRequest.entity?.managedObjectClassName
-        if className == "ToDoItemMO"{
+        let eName = controller.fetchRequest.entityName
+        if eName == "CatalogItem"{
             switch type {
             case .insert:
                 print("insert before")
@@ -474,40 +474,40 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
             }
             
             if let fetchedObjects = controller.fetchedObjects{
-                reloadDict(objList: fetchedObjects as! [ToDoItemMO])
+                reloadDict(objList: fetchedObjects as! [CatalogItemMO])
             }
         }
-        else if className == "SearchSettingsMO"{
+        else if eName == "SearchSettings"{
             /*
-            switch type {
-            case .insert:
-                print("insert before")
-                if let newIndexPath = newIndexPath{
-                    print("insert after")
-                    tableView.insertRows(at: [newIndexPath], with: .left)
-                }
-            case .delete:
-                print("delete before")
-                if let indexPath = indexPath{
-                    tableView.deleteRows(at: [indexPath], with: .right)
-                }
-            case .update:
-                print("update before")
-                if let indexPath = indexPath{
-                    tableView.reloadRows(at: [indexPath], with: .left)
-                }
-            default:
-                print("default")
-                tableView.reloadData()
-            }
+             switch type {
+             case .insert:
+             print("insert before")
+             if let newIndexPath = newIndexPath{
+             print("insert after")
+             tableView.insertRows(at: [newIndexPath], with: .left)
+             }
+             case .delete:
+             print("delete before")
+             if let indexPath = indexPath{
+             tableView.deleteRows(at: [indexPath], with: .right)
+             }
+             case .update:
+             print("update before")
+             if let indexPath = indexPath{
+             tableView.reloadRows(at: [indexPath], with: .left)
+             }
+             default:
+             print("default")
+             tableView.reloadData()
+             }
              
- */
+             */
             if let fetchedObjects = searchTypeController.fetchedObjects {
                 searchSettings = fetchedObjects[0]
             }
         }
         else{
-            print("unused class: " + className!)
+            print("unused entity: " + eName!)
         }
     }
     
@@ -569,7 +569,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
             if let indexPath = self.tableView.indexPathForSelectedRow{
                 let descriptionVC = segue.destination as! DetailPageViewController
                 
-                var objDict : [String:[ToDoItemMO]]
+                var objDict : [String:[CatalogItemMO]]
                 var objTitles : [String]
                 var objKey : String
                 

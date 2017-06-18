@@ -13,7 +13,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     //@IBOutlet weak var cartTableView: CartTableView!
     
     @IBOutlet weak var cartTableView : UITableView!
-    var booksInCart : [ToDoItemMO] = []
+    var booksInCart : [CartItemMO] = []
     
     let cellReuseIdentifier = "TableItem"
     
@@ -51,7 +51,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    func addBookToCart(book : ToDoItemMO){
+    func addBookToCart(book : CartItemMO){
         print("Added book to list")
         booksInCart.append(book)
         //cartTableView.reloadData()
@@ -70,7 +70,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TableViewCell
         
         // Configure the cell...
-        var cellItem : ToDoItemMO
+        var cellItem : CartItemMO
         //var objDict : [String:[ToDoItemMO]]
         //var objTitles : [String]
         //var objKey : String

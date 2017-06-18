@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CartItem" representedClassName="CartItemMO" parentEntity="ToDoItem" syncable="YES" codeGenerationType="class">
+        <attribute name="added" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="CatalogItem" representedClassName="CatalogItemMO" parentEntity="ToDoItem" syncable="YES" codeGenerationType="class"/>
     <entity name="SearchSettings" representedClassName="SearchSettingsMO" syncable="YES" codeGenerationType="class">
         <attribute name="author" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -13,8 +17,14 @@
         <attribute name="sectionTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="WishlistItem" representedClassName="WishlistItemMO" parentEntity="ToDoItem" syncable="YES" codeGenerationType="class">
+        <attribute name="added" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="ToDoItem" positionX="-63" positionY="-18" width="128" height="150"/>
-        <element name="SearchSettings" positionX="-63" positionY="36" width="128" height="75"/>
+        <element name="SearchSettings" positionX="-171" positionY="63" width="128" height="75"/>
+        <element name="ToDoItem" positionX="18" positionY="-18" width="128" height="148"/>
+        <element name="WishlistItem" positionX="-180" positionY="218" width="126" height="58"/>
+        <element name="CartItem" positionX="-207" positionY="-54" width="128" height="58"/>
+        <element name="CatalogItem" positionX="-63" positionY="117" width="128" height="45"/>
     </elements>
 </model>

@@ -11,17 +11,23 @@ import CoreData
 
 class DetailPageViewController: UIViewController {
 
+    @IBOutlet var itemImageView: UIImageView!
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var itemDescription: UITextView!
     @IBOutlet weak var itemUserRating: UITextView!
     @IBOutlet weak var itemRatingLabel: UILabel!
     @IBOutlet weak var itemRateButton: UIButton!
+    @IBOutlet var itemWishlistButton: UIButton!
+    
+    
+    let wLName = "WishlistItemMO"
+    let inWishlistText = "Remove from wishlist"
+    let notInWishlistText = "Add to wishlist"
     
     var tableVC: TableViewController!
     
-    var itemTitleText: String!
-    var itemDescriptionText: String!
-    var itemImage: UIImage!
+    var cameFromWL = false
+    var isInWishlist = false
     
     var detailItem: ToDoItemMO!
     
@@ -39,44 +45,9 @@ class DetailPageViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //change objects to preanimation state
-        var transformation : CATransform3D = CATransform3DIdentity
-        transformation = CATransform3DTranslate(transformation, 400, -400, 0)
-        
-        itemTitle.layer.transform = transformation
-        itemTitle.alpha = 0
-        
-        itemDescription.layer.transform = transformation
-        itemDescription.alpha = 0
-        
-        itemUserRating.layer.transform = transformation
-        itemUserRating.alpha = 0
-        
-        itemRateButton.layer.transform = transformation
-        itemRateButton.alpha = 0
-        
-        itemRatingLabel.layer.transform = transformation
-        itemRatingLabel.alpha = 0
-
-
-        
-        
-        UIView.animate(withDuration: 3, animations: {
-            self.itemTitle.layer.transform = CATransform3DIdentity
-            self.itemTitle.alpha = 1
-            
-            self.itemDescription.layer.transform = CATransform3DIdentity
-            self.itemDescription.alpha = 1
-            
-            self.itemUserRating.layer.transform = CATransform3DIdentity
-            self.itemUserRating.alpha = 1
-            
-            self.itemRateButton.layer.transform = CATransform3DIdentity
-            self.itemRateButton.alpha = 1
-            
-            self.itemRatingLabel.layer.transform = CATransform3DIdentity
-            self.itemRatingLabel.alpha = 1
-        })
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -88,9 +59,15 @@ class DetailPageViewController: UIViewController {
         self.itemTitle.text = self.detailItem.title
         self.itemDescription.text = self.detailItem.desc
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(data: detailItem.image as! Data)!)
+        self.itemImageView.image = UIImage(data: detailItem.image! as Data)
         
         self.itemUserRating.text = String(self.detailItem.rating)
+        
+        if cameFromWL{
+            isInWishlist = true
+            cameFromWL = false
+        }
+        changeWishlistStatus(isIn: isInWishlist)
         
         //move all stuff off screen for animation
     }
@@ -119,6 +96,60 @@ class DetailPageViewController: UIViewController {
     }
     
     
+    @IBAction func wishlistAction(_ sender: Any) {
+        
+        if(!isInWishlist){
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+                let context = appDelegate.persistentContainer.viewContext
+                var newWLItem = WishlistItemMO(context: context)
+                //transfer all properties of the detailItem to the new MO
+                newWLItem.author = detailItem.author
+                newWLItem.title = detailItem.title
+                newWLItem.desc = detailItem.desc
+                newWLItem.price = detailItem.price
+                newWLItem.image = detailItem.image
+                newWLItem.sectionTitle = detailItem.sectionTitle
+                newWLItem.rating = detailItem.rating
+                newWLItem.added = NSDate()
+                
+                appDelegate.saveContext()
+            }
+            
+            //animation stuff
+            
+        }
+        else{
+            
+        }
+        
+        changeWishlistStatus(isIn: !isInWishlist)
+    }
+    
+    func changeWishlistStatus(isIn: Bool){
+        //sets the wishlist button based on @param isIn
+        if isIn{
+            //is in wishlist button state
+            itemWishlistButton.backgroundColor = .green
+            itemWishlistButton.setTitle(inWishlistText, for: .normal)
+        }
+        
+        else{
+            //is not in wishlist button state
+            itemWishlistButton.backgroundColor = .yellow
+            itemWishlistButton.setTitle(notInWishlistText, for: .normal)
+        }
+        isInWishlist = isIn
+        
+    }
+    
+    func findInWL(item:ToDoItemMO){
+        
+        
+    }
+    
+    func deleteFromWL(item:ToDoItemMO){
+        
+    }
     
     
     
@@ -134,7 +165,7 @@ class DetailPageViewController: UIViewController {
         
         if segue.identifier == "AddToCart"{
             let cartVC = segue.destination as! CartViewController
-            cartVC.addBookToCart(book: detailItem)
+            cartVC.addBookToCart(book: detailItem as! CartItemMO)
         }
     }
  

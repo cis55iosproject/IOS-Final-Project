@@ -10,7 +10,7 @@ import UIKit
 
 class CartTableView: UITableView {
     
-    var bookObjects : [ToDoItemMO] = []
+    var bookObjects : [CartItemMO] = []
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -27,7 +27,7 @@ class CartTableView: UITableView {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TableViewCell
         
         // Configure the cell...
-        var cellItem : ToDoItemMO
+        var cellItem : CartItemMO
         //var objDict : [String:[ToDoItemMO]]
         //var objTitles : [String]
         //var objKey : String
