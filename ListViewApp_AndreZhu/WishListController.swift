@@ -21,9 +21,10 @@ class WishListController: UITableViewController, NSFetchedResultsControllerDeleg
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        let fetchRequest: NSFetchRequest<WishlistItemMO> = NSFetchRequest<NSFetchRequestResult>(entityName: "WishlistItem") as! NSFetchRequest<WishlistItemMO>
+        let fetchRequest: NSFetchRequest<WishlistItemMO> = WishlistItemMO.fetchRequest()
         
         let sortDescriptor = NSSortDescriptor(key: "added", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -144,7 +145,6 @@ class WishListController: UITableViewController, NSFetchedResultsControllerDeleg
             default:
                 tableView.reloadData()
             }
-            
             if let fetchedObjects = controller.fetchedObjects{
                 wishlistItems = fetchedObjects as! [WishlistItemMO]
             }

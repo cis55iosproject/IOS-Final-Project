@@ -20,7 +20,7 @@ class DetailPageViewController: UIViewController {
     @IBOutlet var itemWishlistButton: UIButton!
     
     
-    let wLName = "WishlistItemMO"
+    let wLName = "WishlistItem"
     let inWishlistText = "Remove from wishlist"
     let notInWishlistText = "Add to wishlist"
     
@@ -66,6 +66,9 @@ class DetailPageViewController: UIViewController {
         if cameFromWL{
             isInWishlist = true
             cameFromWL = false
+        }
+        else{
+            isInWishlist = findInWL(item: detailItem)
         }
         changeWishlistStatus(isIn: isInWishlist)
         
@@ -119,7 +122,7 @@ class DetailPageViewController: UIViewController {
             
         }
         else{
-            
+            deleteFromWL(item: detailItem)
         }
         
         changeWishlistStatus(isIn: !isInWishlist)
@@ -142,13 +145,50 @@ class DetailPageViewController: UIViewController {
         
     }
     
-    func findInWL(item:ToDoItemMO){
+    func findInWL(item:ToDoItemMO) -> Bool{
         
+        let fetch : NSFetchRequest<WishlistItemMO> = WishlistItemMO.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        fetch.sortDescriptors = [sortDescriptor]
+        var results = [WishlistItemMO]()
         
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            
+            do {
+                try fetchResultsController.performFetch()
+                if let fetchedObjects = fetchResultsController.fetchedObjects {
+                    results = fetchedObjects
+                }
+            } catch{
+                print(error)
+            }
+        }
+        
+        for var result in results{
+            if result.title == item.title{
+                return true
+            }
+        }
+        
+        return false
     }
     
     func deleteFromWL(item:ToDoItemMO){
-        
+        let fetch : NSFetchRequest<WishlistItemMO> = WishlistItemMO.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        fetch.sortDescriptors = [sortDescriptor]
+        fetch.predicate = NSPredicate(format: "title == \"\(item.title!)\"")
+        let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDel.persistentContainer.viewContext
+        let object = try! context.fetch(fetch)
+        context.delete(object.first!)
+        do{
+            try appDel.saveContext()
+        } catch{
+            print("delete failed")
+        }
     }
     
     

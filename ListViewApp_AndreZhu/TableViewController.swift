@@ -39,7 +39,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         //for reloading the data from scratch
-
+/*
         let fetch : NSFetchRequest<ToDoItemMO> = ToDoItemMO.fetchRequest()
         let request = NSBatchDeleteRequest(fetchRequest: fetch as! NSFetchRequest<NSFetchRequestResult>)
         do{
@@ -47,6 +47,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         } catch{
             print("delete failed")
         }
+ */
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         setupSearchController()
@@ -292,8 +293,6 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
                     //newItem.image = NSData(data: UIImagePNGRepresentation(UIImage(contentsOfFile: imagePath!)!)!)
                     newItem.image = NSData(data: UIImagePNGRepresentation(UIImage(named: imagePath)!)!)
                     
-                    
-                    print("made new object")
                     appDelegate.saveContext()
                     listObjects.append(newItem)
                     count += 1
@@ -453,23 +452,18 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         if eName == "CatalogItem"{
             switch type {
             case .insert:
-                print("insert before")
                 if let newIndexPath = newIndexPath{
-                    print("insert after")
                     tableView.insertRows(at: [newIndexPath], with: .left)
                 }
             case .delete:
-                print("delete before")
                 if let indexPath = indexPath{
                     tableView.deleteRows(at: [indexPath], with: .right)
                 }
             case .update:
-                print("update before")
                 if let indexPath = indexPath{
                     tableView.reloadRows(at: [indexPath], with: .left)
                 }
             default:
-                print("default")
                 tableView.reloadData()
             }
             
