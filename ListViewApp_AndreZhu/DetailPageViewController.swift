@@ -15,10 +15,11 @@ class DetailPageViewController: UIViewController {
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var itemDescription: UITextView!
     @IBOutlet weak var itemUserRating: UITextView!
-    @IBOutlet weak var itemRatingLabel: UILabel!
+
     @IBOutlet weak var itemRateButton: UIButton!
     @IBOutlet var itemWishlistButton: UIButton!
     
+    @IBOutlet var itemAuthor: UILabel!
     
     let wLName = "WishlistItem"
     let inWishlistText = "Remove from wishlist"
@@ -35,12 +36,9 @@ class DetailPageViewController: UIViewController {
         itemTitle.layer.cornerRadius = 5
         itemDescription.layer.cornerRadius = 5
         
-        itemTitle.layer.borderWidth = 3
-        itemDescription.layer.borderWidth = 3
         
-        itemTitle.layer.borderColor = UIColor.blue.cgColor
-        itemDescription.layer.borderColor = UIColor.green.cgColor
-        // Do any additional setup after loading the view.
+        
+                // Do any additional setup after loading the view.
         
         //change objects to preanimation state
     }
@@ -56,7 +54,7 @@ class DetailPageViewController: UIViewController {
         super.viewWillAppear(animated)
         self.itemTitle.text = self.detailItem.title
         self.itemDescription.text = self.detailItem.desc
-        
+        self.itemAuthor.text = self.detailItem.author
         self.itemImageView.image = UIImage(data: detailItem.image! as Data)
         
         self.itemUserRating.text = String(self.detailItem.rating)
@@ -130,13 +128,13 @@ class DetailPageViewController: UIViewController {
         //sets the wishlist button based on @param isIn
         if isIn{
             //is in wishlist button state
-            itemWishlistButton.backgroundColor = .green
+            //itemWishlistButton.backgroundImage(for: .normal) = UIImage "WishListSelected"
             itemWishlistButton.setTitle(inWishlistText, for: .normal)
         }
         
         else{
             //is not in wishlist button state
-            itemWishlistButton.backgroundColor = .yellow
+            itemWishlistButton.backgroundColor = .white
             itemWishlistButton.setTitle(notInWishlistText, for: .normal)
         }
         isInWishlist = isIn
