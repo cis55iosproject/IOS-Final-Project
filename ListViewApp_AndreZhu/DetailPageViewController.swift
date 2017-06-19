@@ -200,7 +200,7 @@ class DetailPageViewController: UIViewController {
         
         if segue.identifier == "AddToCart"{
             let cartVC = segue.destination as! CartViewController
-            cartVC.addBookToCart(book: detailItem as! CartItemMO)
+            cartVC.addBookToCart(book: detailItem as! CatalogItemMO)
         }
     }
  

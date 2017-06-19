@@ -15,7 +15,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var cartTableView : UITableView!
     var booksInCart : [CartItemMO] = []
     
-    let cellReuseIdentifier = "TableItem"
+    let cellReuseIdentifier = "CartCell"
     
     
     
@@ -24,11 +24,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Do any additional setup after loading the view.
         
-        self.cartTableView.register(TableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        //self.cartTableView.register(TableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
 
         
-        cartTableView.delegate = self
-        cartTableView.dataSource = self
+        //cartTableView.delegate = self
+        //cartTableView.dataSource = self
         
         /*
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
@@ -51,14 +51,45 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    func addBookToCart(book : CartItemMO){
+    func addBookToCart(book : CatalogItemMO){
         print("Added book to list")
-        booksInCart.append(book)
         //cartTableView.reloadData()
+        
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            let context = appDelegate.persistentContainer.viewContext
+            
+            
+            var newCartItem = CartItemMO(context: context)
+            //transfer all properties of the book to the new MO
+            newCartItem.author = book.author
+            newCartItem.title = book.title
+            newCartItem.desc = book.desc
+            newCartItem.price = book.price
+            newCartItem.image = book.image
+            newCartItem.sectionTitle = book.sectionTitle
+            newCartItem.rating = book.rating
+            newCartItem.added = NSDate()
+            
+            booksInCart.append(newCartItem)
+            
+            
+            
+            
+            appDelegate.saveContext()
+        }
+
         
     }
     
-    
+    func saveState(){
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            let context = appDelegate.persistentContainer.viewContext
+            
+            appDelegate.saveContext()
+        }
+        
+    }
     
     
     
@@ -66,7 +97,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "TableItem"
+        let cellIdentifier = "CartCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! TableViewCell
         
         // Configure the cell...
@@ -96,6 +127,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.itemImage?.image = UIImage(data: cellItem.image as! Data)
         cell.itemText?.text = cellItem.title!
         cell.itemAuthor?.text = cellItem.author
+        
         
         return cell
     }
@@ -132,6 +164,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
+
         
     }
     
