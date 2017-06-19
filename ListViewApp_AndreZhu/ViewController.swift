@@ -10,8 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var welcomeText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        welcomeText.text = "Thank you for viewing our store.\n\nProgrammers: Andre Zhu and Damon Birtola\nDesigners: Robbyn Blumenschein and Anglea\n\n The tabs below will take you to the catolog of books, the wishlist and the cart."
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
