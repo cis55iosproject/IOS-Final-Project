@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nRZ-jh-WgC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nRZ-jh-WgC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -210,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNW-kR-O5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1672.8" y="-762.36881559220399"/>
+            <point key="canvasLocation" x="1919" y="-761"/>
         </scene>
         <!--About-->
         <scene sceneID="OI7-pJ-pz8">
@@ -297,6 +297,7 @@
                                     <outlet property="itemImage" destination="km5-1c-dA8" id="yVT-gv-xrU"/>
                                     <outlet property="itemPrice" destination="auT-Dz-bOS" id="7s7-V6-l5I"/>
                                     <outlet property="itemText" destination="YRF-DK-Rta" id="fKk-c8-vqL"/>
+                                    <segue destination="PKA-aX-khn" kind="show" id="NwZ-Dl-kY1"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LastItemCell" rowHeight="90" id="jRt-dB-q1k" customClass="EmptyWishlistCell" customModule="ListViewApp_AndreZhu" customModuleProvider="target">
@@ -319,6 +320,9 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Q3h-U0-Q1H" kind="show" id="vYJ-BJ-lfG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -327,10 +331,27 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="6eu-Tm-ngF" userLabel="Wishlist"/>
+                    <navigationItem key="navigationItem" id="Njg-kj-hj1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLA-ef-rHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2698.4000000000001" y="-762.36881559220399"/>
+            <point key="canvasLocation" x="-2284" y="36"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RE8-Pm-bdq">
+            <objects>
+                <navigationController id="Sm7-dj-kJC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QKD-Wi-HMW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="tpY-Ow-xeR" kind="relationship" relationship="rootViewController" id="PnX-AJ-Kqj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ex8-To-n90" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2284" y="-762"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7Ps-S0-ots">
@@ -344,7 +365,7 @@
                     <connections>
                         <segue destination="4Rp-E4-7Du" kind="relationship" relationship="viewControllers" id="Ja6-vI-ILy"/>
                         <segue destination="ZlO-aC-h00" kind="relationship" relationship="viewControllers" id="pTu-JL-TCN"/>
-                        <segue destination="tpY-Ow-xeR" kind="relationship" relationship="viewControllers" id="dTx-3f-fWH"/>
+                        <segue destination="Sm7-dj-kJC" kind="show" id="FiL-Le-gpS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVL-jg-N4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -387,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCX-r4-nSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1236" y="-1805"/>
+            <point key="canvasLocation" x="-1236" y="-1748"/>
         </scene>
         <!--Movies-->
         <scene sceneID="Yf8-lz-7ex">
@@ -441,4 +462,8 @@
             <point key="canvasLocation" x="-1458" y="1128"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vYJ-BJ-lfG"/>
+        <segue reference="NwZ-Dl-kY1"/>
+    </inferredMetricsTieBreakers>
 </document>
