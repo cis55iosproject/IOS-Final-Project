@@ -297,7 +297,7 @@
                                     <outlet property="itemImage" destination="km5-1c-dA8" id="yVT-gv-xrU"/>
                                     <outlet property="itemPrice" destination="auT-Dz-bOS" id="7s7-V6-l5I"/>
                                     <outlet property="itemText" destination="YRF-DK-Rta" id="fKk-c8-vqL"/>
-                                    <segue destination="PKA-aX-khn" kind="show" id="NwZ-Dl-kY1"/>
+                                    <segue destination="PKA-aX-khn" kind="show" identifier="ShowItemDescription" id="NwZ-Dl-kY1"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LastItemCell" rowHeight="90" id="jRt-dB-q1k" customClass="EmptyWishlistCell" customModule="ListViewApp_AndreZhu" customModuleProvider="target">
@@ -393,7 +393,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X2y-IX-787" id="uU7-oS-csc">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -408,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCX-r4-nSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1236" y="-1748"/>
+            <point key="canvasLocation" x="-1236" y="-1748.2758620689656"/>
         </scene>
         <!--Movies-->
         <scene sceneID="Yf8-lz-7ex">

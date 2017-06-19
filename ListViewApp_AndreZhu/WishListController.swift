@@ -159,14 +159,26 @@ class WishListController: UITableViewController, NSFetchedResultsControllerDeleg
         tableView.endUpdates()
     }
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowItemDescription" {
+            if let indexPath = self.tableView.indexPathForSelectedRow{
+                let descriptionVC = segue.destination as! DetailPageViewController
+                
+                
+                objKey = objTitles[indexPath.section]
+                
+                if let objValues = objDict[objKey]{
+                    descriptionVC.detailItem = objValues[indexPath.row]
+                }
+            }
+        }
     }
-    */
+
 
 }

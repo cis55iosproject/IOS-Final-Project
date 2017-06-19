@@ -24,8 +24,6 @@ class DetailPageViewController: UIViewController {
     let inWishlistText = "Remove from wishlist"
     let notInWishlistText = "Add to wishlist"
     
-    var tableVC: TableViewController!
-    
     var cameFromWL = false
     var isInWishlist = false
     
@@ -93,9 +91,9 @@ class DetailPageViewController: UIViewController {
         }
         
         detailItem.rating = rating
-        tableVC.saveChanges()
-        
-
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            appDelegate.saveContext()
+        }
     }
     
     
@@ -192,9 +190,6 @@ class DetailPageViewController: UIViewController {
     }
     
     
-    
-    
-
     
     // MARK: - Navigation
 
