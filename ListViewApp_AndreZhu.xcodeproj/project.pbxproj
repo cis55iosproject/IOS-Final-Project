@@ -10,6 +10,7 @@
 		52FE0D7C1EF5DBC3004DC442 /* WishListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FE0D7B1EF5DBC3004DC442 /* WishListController.swift */; };
 		52FE0D7E1EF5DD2F004DC442 /* EmptyWishlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FE0D7D1EF5DD2F004DC442 /* EmptyWishlistCell.swift */; };
 		52FE0D801EF5E46E004DC442 /* WishlistItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FE0D7F1EF5E46E004DC442 /* WishlistItemCell.swift */; };
+		52FE0D861EF893A3004DC442 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FE0D851EF893A3004DC442 /* WelcomeController.swift */; };
 		64E659E81EF20AF3006343B1 /* CartTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E659E71EF20AF3006343B1 /* CartTableView.swift */; };
 		EF0530E81ECA990A0077BF0F /* descriptions.rtf in Resources */ = {isa = PBXBuildFile; fileRef = EF0530E71ECA990A0077BF0F /* descriptions.rtf */; };
 		EF0920711EC15BD100297ADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0920701EC15BD100297ADF /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		52FE0D7B1EF5DBC3004DC442 /* WishListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListController.swift; sourceTree = "<group>"; };
 		52FE0D7D1EF5DD2F004DC442 /* EmptyWishlistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyWishlistCell.swift; sourceTree = "<group>"; };
 		52FE0D7F1EF5E46E004DC442 /* WishlistItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistItemCell.swift; sourceTree = "<group>"; };
+		52FE0D851EF893A3004DC442 /* WelcomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		64E659E71EF20AF3006343B1 /* CartTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableView.swift; sourceTree = "<group>"; };
 		EF0530E71ECA990A0077BF0F /* descriptions.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = descriptions.rtf; sourceTree = "<group>"; };
 		EF09206D1EC15BD100297ADF /* ListViewApp_AndreZhu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListViewApp_AndreZhu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +113,7 @@
 				52FE0D7A1EF5DA70004DC442 /* Wishlist */,
 				EF0920821EC15FE700297ADF /* TableViewController.swift */,
 				EFC932251ECA87170066609C /* Main.storyboard */,
+				52FE0D851EF893A3004DC442 /* WelcomeController.swift */,
 				64E659E71EF20AF3006343B1 /* CartTableView.swift */,
 				EF611BF31EEF6EA1003BA928 /* CartViewController.swift */,
 				EF6685DC1EF375A800721FFD /* Settings */,
@@ -229,6 +232,7 @@
 				EFCAC3541EDFB29B007D3018 /* ToDoItem.swift in Sources */,
 				EF0920851EC1617B00297ADF /* TableViewCell.swift in Sources */,
 				EF8750AE1EF0C42200B4BFB7 /* SearchSettings.swift in Sources */,
+				52FE0D861EF893A3004DC442 /* WelcomeController.swift in Sources */,
 				EF8750AC1EF0BF8500B4BFB7 /* SettingsItem.swift in Sources */,
 				EF8750B01EF0CFAA00B4BFB7 /* SettingsOptionCell.swift in Sources */,
 				EF611BF41EEF6EA1003BA928 /* CartViewController.swift in Sources */,

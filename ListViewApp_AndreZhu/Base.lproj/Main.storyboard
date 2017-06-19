@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yWQ-0R-lCv" id="vv0-69-0XS">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="159.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8AE-JV-ufd">
@@ -213,10 +213,10 @@
             </objects>
             <point key="canvasLocation" x="1917.6000000000001" y="-761.46926536731644"/>
         </scene>
-        <!--About-->
+        <!--Welcome-->
         <scene sceneID="OI7-pJ-pz8">
             <objects>
-                <viewController storyboardIdentifier="About" title="About" id="4Rp-E4-7Du" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="About" title="Welcome" id="4Rp-E4-7Du" customClass="WelcomeController" customModule="ListViewApp_AndreZhu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ztL-RB-YS1"/>
                         <viewControllerLayoutGuide type="bottom" id="x1R-iP-HMv"/>
@@ -225,35 +225,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About the Author: Andre Zhu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxv-cf-MUo">
-                                <rect key="frame" x="105" y="72" width="165" height="86"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baf-qK-ORh">
+                                <rect key="frame" x="28" y="58" width="319" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.88386664396740611" green="0.45476725548291969" blue="0.53467538042257978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XaV-Oq-o6Z">
-                                <rect key="frame" x="41" y="215" width="292" height="236"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.88386664396740611" green="0.88386664396740611" blue="0.88386664396740611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Andre Zhu is a computer science major who is just trying to get by in this class. He feels that the class isn't hard per se, because the concepts aren't too advanced, but he does find it difficult to get his work done because he doesn't own a Mac and has to come to school for his schoolwork.  Sometimes he wonders why he even takes this class.  But then he realizes that its fun an challenging and that he has an amazing professor.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.18251454910000001" green="0.6529711788" blue="0.4429060165" alpha="0.84113666369999995" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" id="hdi-tg-Ryf"/>
+                    <tabBarItem key="tabBarItem" title="Welcome" id="hdi-tg-Ryf"/>
+                    <connections>
+                        <outlet property="WelcomeLabel" destination="baf-qK-ORh" id="mur-co-rs1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGV-oT-8u8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1236" y="217.24137931034485"/>
         </scene>
-        <!--Item-->
+        <!--WishList-->
         <scene sceneID="nte-8e-bRL">
             <objects>
-                <tableViewController id="tpY-Ow-xeR" customClass="WishListController" customModule="ListViewApp_AndreZhu" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="WishList" id="tpY-Ow-xeR" customClass="WishListController" customModule="ListViewApp_AndreZhu" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="169" sectionHeaderHeight="28" sectionFooterHeight="28" id="814-kp-1Mb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,7 +256,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5VN-IP-rF9" id="bF1-5H-LiG">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="159.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="km5-1c-dA8">
@@ -305,7 +298,7 @@
                                 <rect key="frame" x="0.0" y="188" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jRt-dB-q1k" id="olg-iR-dH0">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add some more items to your wishlist!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R3J-57-ZAs">
@@ -331,7 +324,7 @@
                             <outlet property="delegate" destination="tpY-Ow-xeR" id="IBb-vI-h9O"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="6eu-Tm-ngF" userLabel="Wishlist"/>
+                    <tabBarItem key="tabBarItem" title="WishList" id="6eu-Tm-ngF" userLabel="Wishlist"/>
                     <navigationItem key="navigationItem" id="Njg-kj-hj1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLA-ef-rHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -454,11 +447,11 @@
             </objects>
             <point key="canvasLocation" x="-1236" y="-1748.2758620689658"/>
         </scene>
-        <!--Movies-->
+        <!--Books-->
         <scene sceneID="Yf8-lz-7ex">
             <objects>
-                <navigationController hidesBarsWhenKeyboardAppears="YES" id="ZlO-aC-h00" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Movies" id="1LG-tM-LPn"/>
+                <navigationController title="Books" hidesBarsWhenKeyboardAppears="YES" id="ZlO-aC-h00" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Books" id="1LG-tM-LPn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sBQ-H2-F41">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -511,7 +504,7 @@
         <image name="shopping-cart-add-128x128" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="NwZ-Dl-kY1"/>
         <segue reference="vYJ-BJ-lfG"/>
-        <segue reference="Yfh-xI-QUL"/>
     </inferredMetricsTieBreakers>
 </document>
