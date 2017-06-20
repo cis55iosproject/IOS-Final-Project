@@ -159,6 +159,32 @@ class WishListController: UITableViewController, NSFetchedResultsControllerDeleg
         tableView.endUpdates()
     }
 
+    
+    
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            
+            
+            
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+                let context = appDelegate.persistentContainer.viewContext
+                
+                
+                let itemToDelete = self.fetchResultsController.object(at: indexPath)
+                
+                context.delete(itemToDelete)
+                appDelegate.saveContext()
+            }
+            
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
+    
 
     // MARK: - Navigation
 
