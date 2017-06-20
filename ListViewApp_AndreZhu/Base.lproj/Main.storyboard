@@ -400,38 +400,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="124-3F-zAH">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="124-3F-zAH" customClass="CartTableView" customModule="ListViewApp_AndreZhu" customModuleProvider="target">
                                 <rect key="frame" x="16" y="52" width="343" height="412"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="18" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartCell" rowHeight="160" id="AMo-b4-e9h" customClass="TableViewCell" customModule="ListViewApp_AndreZhu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AMo-b4-e9h" id="Iwf-ea-bWa">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="AMo-b4-e9h" id="Iwf-ea-bWa">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EbV-wV-ITO">
-                                                    <rect key="frame" x="8" y="8" width="110" height="144"/>
+                                                    <rect key="frame" x="8" y="8" width="98" height="116"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Title" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyM-Fu-5rv">
-                                                    <rect key="frame" x="126" y="16" width="201" height="40"/>
+                                                    <rect key="frame" x="126" y="7" width="201" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Author" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0t-hI-p1e">
-                                                    <rect key="frame" x="126" y="56" width="186" height="32"/>
+                                                    <rect key="frame" x="126" y="38" width="186" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="price" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6w-25-6Gq">
-                                                    <rect key="frame" x="254" y="92" width="73" height="41"/>
+                                                    <rect key="frame" x="254" y="83" width="73" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -506,6 +507,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="BLH-Ah-Tpo"/>
                     <connections>
+                        <outlet property="Subtotal" destination="ZJa-zC-aRx" id="Y1L-3f-W6m"/>
+                        <outlet property="Tax" destination="5Fm-2I-3xP" id="wY9-Q6-XqL"/>
+                        <outlet property="Total" destination="8sR-Yv-DbJ" id="15N-2x-b3e"/>
                         <outlet property="cartTableView" destination="124-3F-zAH" id="wCe-Bo-HtC"/>
                     </connections>
                 </viewController>
@@ -534,57 +538,13 @@
             </objects>
             <point key="canvasLocation" x="-238" y="-761"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="hcR-NK-Xxd">
-            <objects>
-                <viewController id="rXr-lL-xYp" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cY3-AG-TGy"/>
-                        <viewControllerLayoutGuide type="bottom" id="QD1-b3-GVh"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Eoh-d6-sPL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YLn-v3-Szw">
-                                <rect key="frame" x="0.0" y="28" width="375" height="517"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHz-Ee-soH">
-                                <rect key="frame" x="0.0" y="553" width="375" height="114"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yKf-2e-17D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1458" y="1128"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="LGM-GF-oNq">
-            <objects>
-                <viewController id="hb9-Z0-S4z" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Yzs-bp-P3f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U4u-QS-gwW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="370" y="-1939"/>
-        </scene>
     </scenes>
     <resources>
         <image name="WishListHeart" width="128" height="128"/>
         <image name="shopping-cart-add-128x128" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vYJ-BJ-lfG"/>
+        <segue reference="jJZ-D3-Kx1"/>
         <segue reference="Yfh-xI-QUL"/>
         <segue reference="HW2-VM-xjn"/>
     </inferredMetricsTieBreakers>
