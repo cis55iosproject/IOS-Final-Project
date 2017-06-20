@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 
     //@IBOutlet weak var cartTableView: CartTableView!
     
@@ -17,7 +18,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let cellReuseIdentifier = "CartCell"
     
-    
+    var fetchResultsController : NSFetchedResultsController<CartItemMO>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,29 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             testItem.title = "TestTitle"
             booksInCart.append(testItem)
         }*/
+        
+        
+        let fetchRequest : NSFetchRequest<CartItemMO> = CartItemMO.fetchRequest()
+        
+        let sortDescriptor = NSSortDescriptor(key: "added", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+            let context = appDelegate.persistentContainer.viewContext
+            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultsController.delegate = self
+            
+            do{
+                try fetchResultsController.performFetch()
+                if let fetchedObjects = fetchResultsController.fetchedObjects{
+                    booksInCart = fetchedObjects
+                }
+            }catch{
+                    print(error)
+            }
+                
+        }
+        
         
  
     }
@@ -118,6 +142,69 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 1
         
     }
+
+
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>){
+        cartTableView.beginUpdates()
+    }
+    
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        let eName = controller.fetchRequest.entityName
+        if eName == "CartItem"{
+            switch type {
+            case .insert:
+                if let newIndexPath = newIndexPath{
+                    cartTableView.insertRows(at: [newIndexPath], with: .left)
+                }
+            case .delete:
+                if let indexPath = indexPath{
+                    cartTableView.deleteRows(at: [indexPath], with: .right)
+                }
+            case .update:
+                if let indexPath = indexPath{
+                    cartTableView.reloadRows(at: [indexPath], with: .left)
+                }
+            default:
+                cartTableView.reloadData()
+            }
+            if let fetchedObjects = controller.fetchedObjects{
+                booksInCart = fetchedObjects as! [CartItemMO]
+            }
+        }
+        else{
+            print("unused class: " + eName!)
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
+        cartTableView.endUpdates()
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            
+            
+            
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+                let context = appDelegate.persistentContainer.viewContext
+                
+                
+                let itemToDelete = self.fetchResultsController.object(at: indexPath)
+                
+                context.delete(itemToDelete)
+                appDelegate.saveContext()
+            }
+
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
