@@ -29,25 +29,25 @@
                                             <rect key="frame" x="8" y="8" width="110" height="144"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q17-GD-uLA">
-                                            <rect key="frame" x="126" y="8" width="241" height="74"/>
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Title" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q17-GD-uLA">
+                                            <rect key="frame" x="124" y="12" width="229" height="58"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ry-Qm-igN">
-                                            <rect key="frame" x="126" y="90" width="171" height="61"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Author" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ry-Qm-igN">
+                                            <rect key="frame" x="126" y="63" width="216" height="49"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqw-XW-0fH">
-                                            <rect key="frame" x="305" y="90" width="70" height="57"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="$0.0" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqw-XW-0fH">
+                                            <rect key="frame" x="264" y="101" width="70" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                     </subviews>
@@ -76,7 +76,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Vn-TF-GHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840.80000000000007" y="-761.46926536731644"/>
+            <point key="canvasLocation" x="840.79999999999995" y="-761.46926536731644"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="hU9-58-BYm">
@@ -128,10 +128,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="0.0" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MTR-GQ-N4X">
-                                <rect key="frame" x="104" y="536" width="166" height="45"/>
+                                <rect key="frame" x="104" y="550" width="166" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="light" returnKeyType="done"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="sadas" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5gT-gh-w1a">
@@ -173,10 +173,6 @@
                                     <segue destination="H2P-Vn-8Ks" kind="show" identifier="AddToCart" id="HW2-VM-xjn"/>
                                 </connections>
                             </button>
-                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dj7-11-Rbx">
-                                <rect key="frame" x="123" y="99" width="128" height="164"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wQ-rT-SrE">
                                 <rect key="frame" x="152" y="577" width="70" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -189,6 +185,10 @@
                                     <action selector="changeRating:" destination="PKA-aX-khn" eventType="primaryActionTriggered" id="YHl-qB-PkO"/>
                                 </connections>
                             </button>
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dj7-11-Rbx">
+                                <rect key="frame" x="103" y="68" width="161" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -206,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNW-kR-O5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1917.6000000000001" y="-761.46926536731644"/>
+            <point key="canvasLocation" x="1917.5999999999999" y="-761.46926536731644"/>
         </scene>
         <!--Welcome-->
         <scene sceneID="OI7-pJ-pz8">
@@ -409,7 +409,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AMo-b4-e9h" id="Iwf-ea-bWa">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="159.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EbV-wV-ITO">
@@ -584,8 +584,8 @@
         <image name="shopping-cart-add-128x128" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jJZ-D3-Kx1"/>
-        <segue reference="ejA-nN-bZc"/>
+        <segue reference="vYJ-BJ-lfG"/>
         <segue reference="Yfh-xI-QUL"/>
+        <segue reference="HW2-VM-xjn"/>
     </inferredMetricsTieBreakers>
 </document>
