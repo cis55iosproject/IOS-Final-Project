@@ -24,11 +24,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Do any additional setup after loading the view.
         
-        self.cartTableView.register(TableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        //self.cartTableView.register(TableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
 
         
-        cartTableView.delegate = self
-        cartTableView.dataSource = self
+       // cartTableView.delegate = self
+       // cartTableView.dataSource = self
         
         /*
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
