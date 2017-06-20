@@ -54,7 +54,6 @@ class BookAPIHandler: NSObject {
                 //Store response in NSDictionary for easy access
                 let dict = parsedData as? NSDictionary
                 
-                bookData
                 
             }
                 //else throw an error detailing what went wrong
