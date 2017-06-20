@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class BookAPIHandler: NSObject {
     
@@ -20,13 +21,47 @@ class BookAPIHandler: NSObject {
     
     let test = "https://www.googleapis.com/books/v1/"
     
-    func searchByISBN(isbn: String){
+    func searchByISBN(isbn: String) -> [String:String]{
         let bookURL = baseURL + BOOK + TITLE + ISBN + isbn + GOOGLEAPI
         
-        let result = URL(string: bookURL)
+        var bookData = [String:String]()
+        
+        if let result = URL(string: bookURL){
+            do{
+                return bookObjectFromURL(contents: result)
+            }
+            catch{
+                print("content loading error")
+            }
+        }
+        else{
+            print("bad url")
+        }
+        
+        return bookData
     }
     
     func searchByTitle(title: String){
         
+    }
+    
+    func bookObjectFromURL(contents: URL) -> [String:String]{
+        var bookData = [String:String]()
+        if let data = try? Data(contentsOf: contents) {
+            do {
+                let parsedData = try JSONSerialization.jsonObject(with: data as Data, options: .allowFragments)
+                
+                //Store response in NSDictionary for easy access
+                let dict = parsedData as? NSDictionary
+                
+                bookData
+                
+            }
+                //else throw an error detailing what went wrong
+            catch let error as NSError {
+                print("Details of JSON parsing error:\n \(error)")
+            }
+        }
+        return bookData
     }
 }
