@@ -196,7 +196,7 @@ class WishListController: UITableViewController, NSFetchedResultsControllerDeleg
             if let indexPath = self.tableView.indexPathForSelectedRow{
                 let descriptionVC = segue.destination as! DetailPageViewController
                 
-                descriptionVC.detailItem = wishlistItems[indexPath.row]
+                descriptionVC.setDetail(detail: wishlistItems[indexPath.row])
             }
         }
     }

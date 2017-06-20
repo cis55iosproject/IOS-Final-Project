@@ -578,7 +578,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
                 objKey = objTitles[indexPath.section]
                 
                 if let objValues = objDict[objKey]{
-                    descriptionVC.detailItem = objValues[indexPath.row]
+                    descriptionVC.setDetail(detail: objValues[indexPath.row])
                 }
             }
         }

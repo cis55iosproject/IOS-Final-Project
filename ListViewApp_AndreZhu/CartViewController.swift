@@ -14,7 +14,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     //@IBOutlet weak var cartTableView: CartTableView!
     
     @IBOutlet var Total: UILabel!
-    //tax should be 8.5%    @IBOutlet var Tax: UILabel!    
+    //tax should be 8.5%    
+    @IBOutlet var Tax: UILabel!
     @IBOutlet var Subtotal: UILabel!
     @IBOutlet weak var cartTableView : UITableView!
     var booksInCart : [CartItemMO] = []

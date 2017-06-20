@@ -28,7 +28,8 @@ class DetailPageViewController: UIViewController {
     var cameFromWL = false
     var isInWishlist = false
     
-    var detailItem: ToDoItemMO!
+    var detailItemMO: ToDoItemMO!
+    var detailItem: DetailItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +37,7 @@ class DetailPageViewController: UIViewController {
         itemTitle.layer.cornerRadius = 5
         itemDescription.layer.cornerRadius = 5
         
-        
-        
-                // Do any additional setup after loading the view.
-        
-        //change objects to preanimation state
+
     }
     
     
@@ -52,10 +49,13 @@ class DetailPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if detailItemMO.image == nil{
+            print("nil")
+        }
         self.itemTitle.text = self.detailItem.title
         self.itemDescription.text = self.detailItem.desc
         self.itemAuthor.text = self.detailItem.author
-        self.itemImageView.image = UIImage(data: detailItem.image! as Data)
+        self.itemImageView.image = detailItem.image
         
         self.itemUserRating.text = String(self.detailItem.rating)
         
@@ -64,7 +64,7 @@ class DetailPageViewController: UIViewController {
             cameFromWL = false
         }
         else{
-            isInWishlist = findInWL(item: detailItem)
+            isInWishlist = findInWL(item: detailItemMO)
         }
         changeWishlistStatus(isIn: isInWishlist)
         
@@ -84,11 +84,11 @@ class DetailPageViewController: UIViewController {
         rating = min(maxRating, rating)
         rating = max(minRating, rating)
         
-        if rating == detailItem.rating{
+        if rating == detailItemMO.rating{
             return
         }
         
-        detailItem.rating = rating
+        detailItemMO.rating = rating
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
             appDelegate.saveContext()
         }
@@ -102,13 +102,13 @@ class DetailPageViewController: UIViewController {
                 let context = appDelegate.persistentContainer.viewContext
                 var newWLItem = WishlistItemMO(context: context)
                 //transfer all properties of the detailItem to the new MO
-                newWLItem.author = detailItem.author
-                newWLItem.title = detailItem.title
-                newWLItem.desc = detailItem.desc
-                newWLItem.price = detailItem.price
-                newWLItem.image = detailItem.image
-                newWLItem.sectionTitle = detailItem.sectionTitle
-                newWLItem.rating = detailItem.rating
+                newWLItem.author = detailItemMO.author
+                newWLItem.title = detailItemMO.title
+                newWLItem.desc = detailItemMO.desc
+                newWLItem.price = detailItemMO.price
+                newWLItem.image = detailItemMO.image
+                newWLItem.sectionTitle = detailItemMO.sectionTitle
+                newWLItem.rating = detailItemMO.rating
                 newWLItem.added = NSDate()
                 
                 appDelegate.saveContext()
@@ -118,10 +118,22 @@ class DetailPageViewController: UIViewController {
             
         }
         else{
-            deleteFromWL(item: detailItem)
+            deleteFromWL(item: detailItemMO)
         }
         
         changeWishlistStatus(isIn: !isInWishlist)
+    }
+    
+    func setDetail(detail: ToDoItemMO){
+        detailItemMO = detail
+        let img = UIImage(data: detailItemMO.image as! Data)
+        detailItem = DetailItem(itemTitle: detailItemMO.title!,
+                                itemDesc: detailItemMO.desc!,
+                                itemImg: img!,
+                                itemAuthor: detailItemMO.author!,
+                                itemPrice: detailItemMO.price,
+                                itemRating: detailItemMO.rating)
+        
     }
     
     func changeWishlistStatus(isIn: Bool){
@@ -199,7 +211,7 @@ class DetailPageViewController: UIViewController {
         
         if segue.identifier == "AddToCart"{
             let cartVC = segue.destination as! CartViewController
-            cartVC.addBookToCart(book: detailItem as! CatalogItemMO)
+            cartVC.addBookToCart(book: detailItemMO as! CatalogItemMO)
         }
     }
  
