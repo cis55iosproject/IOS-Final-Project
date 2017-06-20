@@ -17,9 +17,9 @@ class DetailPageViewController: UIViewController {
     @IBOutlet weak var itemUserRating: UITextView!
 
     @IBOutlet weak var itemRateButton: UIButton!
-    @IBOutlet var itemWishlistButton: UIButton!
+    @IBOutlet weak var itemWishlistButton: UIButton!
     
-    @IBOutlet var itemAuthor: UILabel!
+    @IBOutlet weak var itemAuthor: UILabel!
     
     let wLName = "WishlistItem"
     let inWishlistText = "Remove from wishlist"
@@ -128,13 +128,14 @@ class DetailPageViewController: UIViewController {
         //sets the wishlist button based on @param isIn
         if isIn{
             //is in wishlist button state
-            //itemWishlistButton.backgroundImage(for: .normal) = UIImage "WishListSelected"
+            itemWishlistButton.setImage(UIImage(named: "WishListSelected"), for: .normal)
             itemWishlistButton.setTitle(inWishlistText, for: .normal)
         }
         
         else{
             //is not in wishlist button state
             itemWishlistButton.backgroundColor = .white
+            itemWishlistButton.setImage(UIImage(named: "WishListHeart"), for: .normal)
             itemWishlistButton.setTitle(notInWishlistText, for: .normal)
         }
         isInWishlist = isIn

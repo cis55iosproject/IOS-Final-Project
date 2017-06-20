@@ -32,6 +32,7 @@
 		EF8750AC1EF0BF8500B4BFB7 /* SettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8750AB1EF0BF8500B4BFB7 /* SettingsItem.swift */; };
 		EF8750AE1EF0C42200B4BFB7 /* SearchSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8750AD1EF0C42200B4BFB7 /* SearchSettings.swift */; };
 		EF8750B01EF0CFAA00B4BFB7 /* SettingsOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8750AF1EF0CFAA00B4BFB7 /* SettingsOptionCell.swift */; };
+		EFC92A351EF8962E00658632 /* BookAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC92A341EF8962E00658632 /* BookAPIHandler.swift */; };
 		EFC932271ECA87170066609C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC932251ECA87170066609C /* Main.storyboard */; };
 		EFCAC3541EDFB29B007D3018 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCAC3531EDFB29B007D3018 /* ToDoItem.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		EF8750AB1EF0BF8500B4BFB7 /* SettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsItem.swift; sourceTree = "<group>"; };
 		EF8750AD1EF0C42200B4BFB7 /* SearchSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSettings.swift; sourceTree = "<group>"; };
 		EF8750AF1EF0CFAA00B4BFB7 /* SettingsOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsOptionCell.swift; sourceTree = "<group>"; };
+		EFC92A341EF8962E00658632 /* BookAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookAPIHandler.swift; sourceTree = "<group>"; };
 		EFC932261ECA87170066609C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFCAC3531EDFB29B007D3018 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 				EF0920841EC1617B00297ADF /* TableViewCell.swift */,
 				EF1426C11EC4093E00DBBA71 /* DetailPageViewController.swift */,
 				EFCAC3531EDFB29B007D3018 /* ToDoItem.swift */,
+				EFC92A341EF8962E00658632 /* BookAPIHandler.swift */,
 				EF0920771EC15BD100297ADF /* Assets.xcassets */,
 				EF0920791EC15BD100297ADF /* LaunchScreen.storyboard */,
 				EF09207C1EC15BD100297ADF /* Info.plist */,
@@ -236,6 +239,7 @@
 				52FE0D801EF5E46E004DC442 /* WishlistItemCell.swift in Sources */,
 				EF611BF81EEF6FE1003BA928 /* TotalsView.swift in Sources */,
 				64E659E81EF20AF3006343B1 /* CartTableView.swift in Sources */,
+				EFC92A351EF8962E00658632 /* BookAPIHandler.swift in Sources */,
 				EF6685DA1EF3722F00721FFD /* SettingCell.swift in Sources */,
 				EF0920831EC15FE700297ADF /* TableViewController.swift in Sources */,
 				52FE0D7E1EF5DD2F004DC442 /* EmptyWishlistCell.swift in Sources */,
