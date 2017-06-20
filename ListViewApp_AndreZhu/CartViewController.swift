@@ -24,11 +24,11 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Do any additional setup after loading the view.
         
-        //self.cartTableView.register(TableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        self.cartTableView.register(TableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
 
         
-        //cartTableView.delegate = self
-        //cartTableView.dataSource = self
+        cartTableView.delegate = self
+        cartTableView.dataSource = self
         
         /*
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
@@ -73,28 +73,12 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             booksInCart.append(newCartItem)
             
-            
-            
-            
             appDelegate.saveContext()
         }
 
         
     }
     
-    func saveState(){
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
-            let context = appDelegate.persistentContainer.viewContext
-            
-            appDelegate.saveContext()
-        }
-        
-    }
-    
-    
-    
-    
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CartCell"
@@ -102,61 +86,22 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Configure the cell...
         var cellItem : CartItemMO
-        //var objDict : [String:[ToDoItemMO]]
-        //var objTitles : [String]
-        //var objKey : String
-        
-        
-        /*if searchController.isActive{
-         objDict = searchResultsDict
-         objTitles = searchResultsTitles
-         }
-         else{
-         objDict = listObjDict
-         objTitles = listObjTitles
-         }
-         objKey = objTitles[indexPath.section]
-         if let objValues = objDict[objKey]{
-         cellItem = objValues[indexPath.row]
-         cell.itemImage?.image = UIImage(data: cellItem.image as! Data)
-         cell.itemText?.text = cellItem.title
-         }
-         */
-        
+
         cellItem = booksInCart[indexPath.row]
         cell.itemImage?.image = UIImage(data: cellItem.image as! Data)
         cell.itemText?.text = cellItem.title!
         cell.itemAuthor?.text = cellItem.author
         
+        print("Cell for row at running for: " + cellItem.title!)
         
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        
-        /*
-         var objDict : [String:[ToDoItemMO]]
-         var objTitles : [String]
-         var objKey : String
-         
-         if searchController.isActive{
-         objDict = searchResultsDict
-         objTitles = searchResultsTitles
-         }
-         else{
-         objDict = listObjDict
-         objTitles = listObjTitles
-         }
-         
-         objKey = objTitles[section]
-         if let objValues = objDict[objKey]{
-         return objValues.count
-         }
-         else{
-         return 0
-         }*/
-        print("Code is running")
+
+        print("Number of rows in section running")
         return booksInCart.count
         
     }
