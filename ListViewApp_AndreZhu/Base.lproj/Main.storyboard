@@ -327,7 +327,7 @@
                             <outlet property="delegate" destination="tpY-Ow-xeR" id="IBb-vI-h9O"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="WishList" id="6eu-Tm-ngF" userLabel="Wishlist"/>
+                    <tabBarItem key="tabBarItem" title="Wishlist" id="6eu-Tm-ngF" userLabel="Wishlist"/>
                     <navigationItem key="navigationItem" id="Njg-kj-hj1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLA-ef-rHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -508,6 +508,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vYJ-BJ-lfG"/>
-        <segue reference="Yfh-xI-QUL"/>
+        <segue reference="NwZ-Dl-kY1"/>
     </inferredMetricsTieBreakers>
 </document>

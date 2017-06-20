@@ -21,8 +21,6 @@
 		EF1426C21EC4093E00DBBA71 /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1426C11EC4093E00DBBA71 /* DetailPageViewController.swift */; };
 		EF26B34C1EC53E0A00AB2E80 /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF26B34B1EC53E0A00AB2E80 /* File.strings */; };
 		EF341F6D1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF341F6B1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodeld */; };
-		EF3D280F1ECD1F9300D42E8C /* moviepics in Resources */ = {isa = PBXBuildFile; fileRef = EF3D280E1ECD1F9300D42E8C /* moviepics */; };
-		EF5245D51ECBE824005F90F1 /* movies.txt in Resources */ = {isa = PBXBuildFile; fileRef = EF5245D41ECBE824005F90F1 /* movies.txt */; };
 		EF611BF41EEF6EA1003BA928 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF611BF31EEF6EA1003BA928 /* CartViewController.swift */; };
 		EF611BF61EEF6FC5003BA928 /* CheckoutTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF611BF51EEF6FC5003BA928 /* CheckoutTableView.swift */; };
 		EF611BF81EEF6FE1003BA928 /* TotalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF611BF71EEF6FE1003BA928 /* TotalsView.swift */; };
@@ -54,8 +52,6 @@
 		EF1426C11EC4093E00DBBA71 /* DetailPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
 		EF26B34B1EC53E0A00AB2E80 /* File.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = File.strings; sourceTree = "<group>"; };
 		EF341F6C1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListViewApp_AndreZhu.xcdatamodel; sourceTree = "<group>"; };
-		EF3D280E1ECD1F9300D42E8C /* moviepics */ = {isa = PBXFileReference; lastKnownFileType = folder; path = moviepics; sourceTree = "<group>"; };
-		EF5245D41ECBE824005F90F1 /* movies.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = movies.txt; sourceTree = "<group>"; };
 		EF611BF31EEF6EA1003BA928 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		EF611BF51EEF6FC5003BA928 /* CheckoutTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutTableView.swift; sourceTree = "<group>"; };
 		EF611BF71EEF6FE1003BA928 /* TotalsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalsView.swift; sourceTree = "<group>"; };
@@ -129,10 +125,8 @@
 				EF0920791EC15BD100297ADF /* LaunchScreen.storyboard */,
 				EF09207C1EC15BD100297ADF /* Info.plist */,
 				EF26B34B1EC53E0A00AB2E80 /* File.strings */,
-				EF5245D41ECBE824005F90F1 /* movies.txt */,
 				EF0530E71ECA990A0077BF0F /* descriptions.rtf */,
 				EF6685D71EF345F100721FFD /* books.tsv */,
-				EF3D280E1ECD1F9300D42E8C /* moviepics */,
 			);
 			path = ListViewApp_AndreZhu;
 			sourceTree = "<group>";
@@ -209,12 +203,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF26B34C1EC53E0A00AB2E80 /* File.strings in Resources */,
-				EF5245D51ECBE824005F90F1 /* movies.txt in Resources */,
 				EF09207B1EC15BD100297ADF /* LaunchScreen.storyboard in Resources */,
 				EF0920781EC15BD100297ADF /* Assets.xcassets in Resources */,
 				EFC932271ECA87170066609C /* Main.storyboard in Resources */,
 				EF0530E81ECA990A0077BF0F /* descriptions.rtf in Resources */,
-				EF3D280F1ECD1F9300D42E8C /* moviepics in Resources */,
 				EF6685D81EF345F100721FFD /* books.tsv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
