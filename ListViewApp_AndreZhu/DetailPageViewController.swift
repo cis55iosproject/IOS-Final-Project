@@ -32,7 +32,8 @@ class DetailPageViewController: UIViewController {
     var detailItemMO: ToDoItemMO!
     var detailItem: DetailItem!
     
-    var myTableViewController : TableViewController!
+    //There might be a better way to save state, but this is what I got
+    var previousViewControllersAppDelegate : AppDelegate!
     
     
     var defaultStarTint : UIColor!
@@ -43,36 +44,38 @@ class DetailPageViewController: UIViewController {
     @IBAction func onFiveStarTouch(_ sender: Any) {
         detailItemMO.rating = 5
         colorStars()
-        myTableViewController.saveChanges()
+        previousViewControllersAppDelegate.saveContext()
     }
     
 
     @IBAction func OnFourStarTouch(_ sender: Any) {
         detailItemMO.rating = 4
         colorStars()
-        myTableViewController.saveChanges()
+        previousViewControllersAppDelegate.saveContext()
     }
     
 
     @IBAction func OnThreeStarTouch(_ sender: Any) {
         detailItemMO.rating = 3
         colorStars()
-        myTableViewController.saveChanges()
+        previousViewControllersAppDelegate.saveContext()
     }
     
 
     @IBAction func OnTwoStarTouch(_ sender: Any) {
         detailItemMO.rating = 2
         colorStars()
-        myTableViewController.saveChanges()
+        previousViewControllersAppDelegate.saveContext()
     }
     
 
     @IBAction func OnOneStarTouch(_ sender: Any) {
         detailItemMO.rating = 1
         colorStars()
-        myTableViewController.saveChanges()
+        previousViewControllersAppDelegate.saveContext()
     }
+    
+
     
     
     
