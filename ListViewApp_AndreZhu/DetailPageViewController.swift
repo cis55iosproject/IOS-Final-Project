@@ -35,7 +35,7 @@ class DetailPageViewController: UIViewController {
     //There might be a better way to save state, but this is what I got
     var previousViewControllersAppDelegate : AppDelegate!
     
-    
+    var defaultStarCGRect : CGRect!
     var defaultStarTint : UIColor!
     
     @IBOutlet var starsCollection: [UIButton]!
@@ -86,7 +86,6 @@ class DetailPageViewController: UIViewController {
         itemDescription.layer.cornerRadius = 5
 
         defaultStarTint = starsCollection[0].imageView!.tintColor
-        
 
         self.animateStars()
         self.colorStars()
@@ -274,6 +273,12 @@ class DetailPageViewController: UIViewController {
     
     
     func animateStars(){
+        for star in starsCollection{
+        
+        }
+    
+        
+        
         for star in starsCollection{
             star.frame = CGRect(x: -100, y: 0, width: Int(star.frame.width), height: Int(star.frame.height))
             
