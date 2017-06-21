@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nRZ-jh-WgC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nRZ-jh-WgC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yWQ-0R-lCv" id="vv0-69-0XS">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="160"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8AE-JV-ufd">
@@ -91,7 +91,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xp7-vg-BG0" id="8a1-ZI-nfr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Search Settings" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ak-0Y-Mjn">
@@ -171,7 +171,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IBb-Vl-qtc">
-                                <rect key="frame" x="85" y="550" width="214" height="0.0"/>
+                                <rect key="frame" x="80" y="538" width="214" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E9J-To-T80">
@@ -228,11 +228,11 @@
                         <outlet property="itemImageView" destination="dj7-11-Rbx" id="AcD-wL-W8P"/>
                         <outlet property="itemTitle" destination="D5G-tP-nVE" id="WVB-sY-d0m"/>
                         <outlet property="itemWishlistButton" destination="42g-53-OLT" id="iga-tA-dIk"/>
-                        <outletCollection property="starsCollection" destination="E9J-To-T80" collectionClass="NSMutableArray" id="HdQ-S4-8Pf"/>
-                        <outletCollection property="starsCollection" destination="Alj-Im-Kxm" collectionClass="NSMutableArray" id="yNh-z3-gnK"/>
-                        <outletCollection property="starsCollection" destination="uOB-gq-Ye8" collectionClass="NSMutableArray" id="Nr7-RV-5cr"/>
-                        <outletCollection property="starsCollection" destination="g1m-4f-KF1" collectionClass="NSMutableArray" id="81x-7g-7If"/>
-                        <outletCollection property="starsCollection" destination="JLs-Dj-IQ6" collectionClass="NSMutableArray" id="b1Y-qp-sCa"/>
+                        <outletCollection property="starsCollection" destination="E9J-To-T80" collectionClass="NSMutableArray" id="Zod-5K-8SH"/>
+                        <outletCollection property="starsCollection" destination="Alj-Im-Kxm" collectionClass="NSMutableArray" id="rsj-BO-ihH"/>
+                        <outletCollection property="starsCollection" destination="uOB-gq-Ye8" collectionClass="NSMutableArray" id="I98-bq-tMN"/>
+                        <outletCollection property="starsCollection" destination="g1m-4f-KF1" collectionClass="NSMutableArray" id="sg7-Qo-PIa"/>
+                        <outletCollection property="starsCollection" destination="JLs-Dj-IQ6" collectionClass="NSMutableArray" id="EXG-Bi-uiU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNW-kR-O5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -290,7 +290,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5VN-IP-rF9" id="bF1-5H-LiG">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="160"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="km5-1c-dA8">
@@ -332,7 +332,7 @@
                                 <rect key="frame" x="0.0" y="188" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jRt-dB-q1k" id="olg-iR-dH0">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add some more items to your wishlist!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R3J-57-ZAs">
@@ -432,7 +432,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="RXP-hb-54g" id="sk0-LY-xfV">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F7S-37-9Wh">
@@ -551,7 +551,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="AMo-b4-e9h" id="Iwf-ea-bWa">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="159"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EbV-wV-ITO">
@@ -599,10 +599,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="BLH-Ah-Tpo"/>
                     <connections>
-                        <outlet property="Subtotal" destination="ZJa-zC-aRx" id="Y1L-3f-W6m"/>
-                        <outlet property="Tax" destination="5Fm-2I-3xP" id="wY9-Q6-XqL"/>
-                        <outlet property="Total" destination="8sR-Yv-DbJ" id="15N-2x-b3e"/>
                         <outlet property="cartTableView" destination="124-3F-zAH" id="wCe-Bo-HtC"/>
+                        <outlet property="subtotalLabel" destination="ZJa-zC-aRx" id="MbW-TV-bif"/>
+                        <outlet property="taxLabel" destination="5Fm-2I-3xP" id="Hqx-g9-Srt"/>
+                        <outlet property="totalLabel" destination="8sR-Yv-DbJ" id="6wI-cc-GsP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCX-r4-nSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
