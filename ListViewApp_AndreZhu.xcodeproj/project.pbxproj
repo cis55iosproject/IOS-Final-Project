@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52A45A371EFAF0B6007AAE25 /* CosmosAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A261EFAF0B6007AAE25 /* CosmosAccessibility.swift */; };
+		52A45A381EFAF0B6007AAE25 /* CosmosDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A271EFAF0B6007AAE25 /* CosmosDefaultSettings.swift */; };
+		52A45A391EFAF0B6007AAE25 /* CosmosLayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A281EFAF0B6007AAE25 /* CosmosLayerHelper.swift */; };
+		52A45A3A1EFAF0B6007AAE25 /* CosmosLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A291EFAF0B6007AAE25 /* CosmosLayers.swift */; };
+		52A45A3B1EFAF0B6007AAE25 /* CosmosLocalizedRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A2A1EFAF0B6007AAE25 /* CosmosLocalizedRating.swift */; };
+		52A45A3C1EFAF0B6007AAE25 /* CosmosRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A2B1EFAF0B6007AAE25 /* CosmosRating.swift */; };
+		52A45A3D1EFAF0B6007AAE25 /* CosmosSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A2C1EFAF0B6007AAE25 /* CosmosSettings.swift */; };
+		52A45A3E1EFAF0B6007AAE25 /* CosmosSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A2D1EFAF0B6007AAE25 /* CosmosSize.swift */; };
+		52A45A3F1EFAF0B6007AAE25 /* CosmosText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A2E1EFAF0B6007AAE25 /* CosmosText.swift */; };
+		52A45A401EFAF0B6007AAE25 /* CosmosTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A2F1EFAF0B6007AAE25 /* CosmosTouch.swift */; };
+		52A45A411EFAF0B6007AAE25 /* CosmosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A301EFAF0B6007AAE25 /* CosmosView.swift */; };
+		52A45A421EFAF0B6007AAE25 /* CosmosTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A321EFAF0B6007AAE25 /* CosmosTouchTarget.swift */; };
+		52A45A431EFAF0B6007AAE25 /* RightToLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A331EFAF0B6007AAE25 /* RightToLeft.swift */; };
+		52A45A441EFAF0B6007AAE25 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52A45A341EFAF0B6007AAE25 /* Info.plist */; };
+		52A45A451EFAF0B6007AAE25 /* StarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A351EFAF0B6007AAE25 /* StarFillMode.swift */; };
+		52A45A461EFAF0B6007AAE25 /* StarLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A45A361EFAF0B6007AAE25 /* StarLayer.swift */; };
 		52FE0D7C1EF5DBC3004DC442 /* WishListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FE0D7B1EF5DBC3004DC442 /* WishListController.swift */; };
 		52FE0D7E1EF5DD2F004DC442 /* EmptyWishlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FE0D7D1EF5DD2F004DC442 /* EmptyWishlistCell.swift */; };
 		52FE0D801EF5E46E004DC442 /* WishlistItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FE0D7F1EF5E46E004DC442 /* WishlistItemCell.swift */; };
@@ -40,6 +56,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52A45A251EFAF0B6007AAE25 /* Cosmos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cosmos.h; sourceTree = "<group>"; };
+		52A45A261EFAF0B6007AAE25 /* CosmosAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosAccessibility.swift; sourceTree = "<group>"; };
+		52A45A271EFAF0B6007AAE25 /* CosmosDefaultSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDefaultSettings.swift; sourceTree = "<group>"; };
+		52A45A281EFAF0B6007AAE25 /* CosmosLayerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLayerHelper.swift; sourceTree = "<group>"; };
+		52A45A291EFAF0B6007AAE25 /* CosmosLayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLayers.swift; sourceTree = "<group>"; };
+		52A45A2A1EFAF0B6007AAE25 /* CosmosLocalizedRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosLocalizedRating.swift; sourceTree = "<group>"; };
+		52A45A2B1EFAF0B6007AAE25 /* CosmosRating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosRating.swift; sourceTree = "<group>"; };
+		52A45A2C1EFAF0B6007AAE25 /* CosmosSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosSettings.swift; sourceTree = "<group>"; };
+		52A45A2D1EFAF0B6007AAE25 /* CosmosSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosSize.swift; sourceTree = "<group>"; };
+		52A45A2E1EFAF0B6007AAE25 /* CosmosText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosText.swift; sourceTree = "<group>"; };
+		52A45A2F1EFAF0B6007AAE25 /* CosmosTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosTouch.swift; sourceTree = "<group>"; };
+		52A45A301EFAF0B6007AAE25 /* CosmosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosView.swift; sourceTree = "<group>"; };
+		52A45A321EFAF0B6007AAE25 /* CosmosTouchTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosTouchTarget.swift; sourceTree = "<group>"; };
+		52A45A331EFAF0B6007AAE25 /* RightToLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightToLeft.swift; sourceTree = "<group>"; };
+		52A45A341EFAF0B6007AAE25 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52A45A351EFAF0B6007AAE25 /* StarFillMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarFillMode.swift; sourceTree = "<group>"; };
+		52A45A361EFAF0B6007AAE25 /* StarLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarLayer.swift; sourceTree = "<group>"; };
 		52FE0D7B1EF5DBC3004DC442 /* WishListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListController.swift; sourceTree = "<group>"; };
 		52FE0D7D1EF5DD2F004DC442 /* EmptyWishlistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyWishlistCell.swift; sourceTree = "<group>"; };
 		52FE0D7F1EF5E46E004DC442 /* WishlistItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistItemCell.swift; sourceTree = "<group>"; };
@@ -85,6 +118,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52A45A241EFAF0B6007AAE25 /* Cosmos */ = {
+			isa = PBXGroup;
+			children = (
+				52A45A251EFAF0B6007AAE25 /* Cosmos.h */,
+				52A45A261EFAF0B6007AAE25 /* CosmosAccessibility.swift */,
+				52A45A271EFAF0B6007AAE25 /* CosmosDefaultSettings.swift */,
+				52A45A281EFAF0B6007AAE25 /* CosmosLayerHelper.swift */,
+				52A45A291EFAF0B6007AAE25 /* CosmosLayers.swift */,
+				52A45A2A1EFAF0B6007AAE25 /* CosmosLocalizedRating.swift */,
+				52A45A2B1EFAF0B6007AAE25 /* CosmosRating.swift */,
+				52A45A2C1EFAF0B6007AAE25 /* CosmosSettings.swift */,
+				52A45A2D1EFAF0B6007AAE25 /* CosmosSize.swift */,
+				52A45A2E1EFAF0B6007AAE25 /* CosmosText.swift */,
+				52A45A2F1EFAF0B6007AAE25 /* CosmosTouch.swift */,
+				52A45A301EFAF0B6007AAE25 /* CosmosView.swift */,
+				52A45A311EFAF0B6007AAE25 /* Helpers */,
+				52A45A341EFAF0B6007AAE25 /* Info.plist */,
+				52A45A351EFAF0B6007AAE25 /* StarFillMode.swift */,
+				52A45A361EFAF0B6007AAE25 /* StarLayer.swift */,
+			);
+			name = Cosmos;
+			path = "iOS/Cosmos-master/Cosmos";
+			sourceTree = "<group>";
+		};
+		52A45A311EFAF0B6007AAE25 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				52A45A321EFAF0B6007AAE25 /* CosmosTouchTarget.swift */,
+				52A45A331EFAF0B6007AAE25 /* RightToLeft.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		52FE0D7A1EF5DA70004DC442 /* Wishlist */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +164,7 @@
 		EF0920641EC15BD100297ADF = {
 			isa = PBXGroup;
 			children = (
+				52A45A241EFAF0B6007AAE25 /* Cosmos */,
 				EF09206F1EC15BD100297ADF /* ListViewApp_AndreZhu */,
 				EF09206E1EC15BD100297ADF /* Products */,
 			);
@@ -232,6 +299,7 @@
 			files = (
 				EF26B34C1EC53E0A00AB2E80 /* File.strings in Resources */,
 				EF5245D51ECBE824005F90F1 /* movies.txt in Resources */,
+				52A45A441EFAF0B6007AAE25 /* Info.plist in Resources */,
 				EF09207B1EC15BD100297ADF /* LaunchScreen.storyboard in Resources */,
 				EF0920781EC15BD100297ADF /* Assets.xcassets in Resources */,
 				EFC932271ECA87170066609C /* Main.storyboard in Resources */,
@@ -248,28 +316,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A45A3C1EFAF0B6007AAE25 /* CosmosRating.swift in Sources */,
 				EF1426C21EC4093E00DBBA71 /* DetailPageViewController.swift in Sources */,
 				EF0920731EC15BD100297ADF /* ViewController.swift in Sources */,
+				52A45A461EFAF0B6007AAE25 /* StarLayer.swift in Sources */,
+				52A45A371EFAF0B6007AAE25 /* CosmosAccessibility.swift in Sources */,
 				EF8750AA1EF0BBF700B4BFB7 /* SettingsViewController.swift in Sources */,
 				EFCAC3541EDFB29B007D3018 /* ToDoItem.swift in Sources */,
 				EF0920851EC1617B00297ADF /* TableViewCell.swift in Sources */,
+				52A45A391EFAF0B6007AAE25 /* CosmosLayerHelper.swift in Sources */,
 				EF8750AE1EF0C42200B4BFB7 /* SearchSettings.swift in Sources */,
+				52A45A381EFAF0B6007AAE25 /* CosmosDefaultSettings.swift in Sources */,
 				EF8750AC1EF0BF8500B4BFB7 /* SettingsItem.swift in Sources */,
 				EF8750B01EF0CFAA00B4BFB7 /* SettingsOptionCell.swift in Sources */,
 				EF611BF41EEF6EA1003BA928 /* CartViewController.swift in Sources */,
 				52FE0D7C1EF5DBC3004DC442 /* WishListController.swift in Sources */,
+				52A45A3D1EFAF0B6007AAE25 /* CosmosSettings.swift in Sources */,
+				52A45A451EFAF0B6007AAE25 /* StarFillMode.swift in Sources */,
 				52FE0D801EF5E46E004DC442 /* WishlistItemCell.swift in Sources */,
+				52A45A3B1EFAF0B6007AAE25 /* CosmosLocalizedRating.swift in Sources */,
+				52A45A3A1EFAF0B6007AAE25 /* CosmosLayers.swift in Sources */,
 				EFA5CE0A1EFA1245004F4BA0 /* TestTableViewController.swift in Sources */,
+				52A45A401EFAF0B6007AAE25 /* CosmosTouch.swift in Sources */,
 				EF611BF81EEF6FE1003BA928 /* TotalsView.swift in Sources */,
 				EFA5CE081EF9DE23004F4BA0 /* DetailItem.swift in Sources */,
+				52A45A431EFAF0B6007AAE25 /* RightToLeft.swift in Sources */,
 				64E659E81EF20AF3006343B1 /* CartTableView.swift in Sources */,
+				52A45A421EFAF0B6007AAE25 /* CosmosTouchTarget.swift in Sources */,
 				EFC92A351EF8962E00658632 /* BookAPIHandler.swift in Sources */,
 				EF6685DA1EF3722F00721FFD /* SettingCell.swift in Sources */,
 				EF0920831EC15FE700297ADF /* TableViewController.swift in Sources */,
 				52FE0D7E1EF5DD2F004DC442 /* EmptyWishlistCell.swift in Sources */,
+				52A45A3E1EFAF0B6007AAE25 /* CosmosSize.swift in Sources */,
 				EF0920711EC15BD100297ADF /* AppDelegate.swift in Sources */,
+				52A45A3F1EFAF0B6007AAE25 /* CosmosText.swift in Sources */,
 				EF341F6D1EE6360C0024822F /* ListViewApp_AndreZhu.xcdatamodeld in Sources */,
 				EF611BF61EEF6FC5003BA928 /* CheckoutTableView.swift in Sources */,
+				52A45A411EFAF0B6007AAE25 /* CosmosView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

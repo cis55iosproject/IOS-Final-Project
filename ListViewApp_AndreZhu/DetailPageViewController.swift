@@ -14,8 +14,9 @@ class DetailPageViewController: UIViewController {
     @IBOutlet var itemImageView: UIImageView!
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var itemDescription: UITextView!
-    @IBOutlet weak var itemUserRating: UITextView!
 
+    @IBOutlet var itemUserRating: CosmosView!
+    
     @IBOutlet weak var itemRateButton: UIButton!
     @IBOutlet weak var itemWishlistButton: UIButton!
     
