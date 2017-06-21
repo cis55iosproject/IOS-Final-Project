@@ -229,9 +229,9 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         tax = subtotal * taxRate
         total = subtotal + tax
         
-        subtotalLabel.text = "$" + String(subtotal)
-        taxLabel.text = "$" + String(tax)
-        totalLabel.text = "$" + String(total)
+        subtotalLabel.text = String(format:"$%.02f", subtotal)
+        taxLabel.text =   String(format:"$%.02f", tax)
+        totalLabel.text = String(format:"$%.02f", total)
         
     }
     
