@@ -549,7 +549,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="124-3F-zAH" customClass="CartTableView" customModule="ListViewApp_AndreZhu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="375" height="429"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="409"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="18" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -614,7 +614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCX-r4-nSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-167" y="-1483"/>
+            <point key="canvasLocation" x="-167.19999999999999" y="-1483.8080959520241"/>
         </scene>
         <!--Books-->
         <scene sceneID="Yf8-lz-7ex">
@@ -644,8 +644,8 @@
         <image name="starIcon" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vYJ-BJ-lfG"/>
+        <segue reference="ejA-nN-bZc"/>
         <segue reference="NwZ-Dl-kY1"/>
-        <segue reference="HW2-VM-xjn"/>
+        <segue reference="vYJ-BJ-lfG"/>
     </inferredMetricsTieBreakers>
 </document>
