@@ -35,7 +35,6 @@ class DetailPageViewController: UIViewController {
     //There might be a better way to save state, but this is what I got
     var previousViewControllersAppDelegate : AppDelegate!
     
-    var defaultStarCGRect : CGRect!
     var defaultStarTint : UIColor!
     
     @IBOutlet var starsCollection: [UIButton]!
@@ -273,9 +272,7 @@ class DetailPageViewController: UIViewController {
     
     
     func animateStars(){
-        for star in starsCollection{
-        
-        }
+
     
         
         
@@ -286,12 +283,12 @@ class DetailPageViewController: UIViewController {
         for i in 0..<starsCollection.count{
             let star = starsCollection[i]
             UIImageView.animate(withDuration: 0.4, delay: (1 - 0.2 * Double(i)), options: UIViewAnimationOptions.curveLinear, animations: {
-                star.frame = CGRect(x: 60 * i, y: 0, width: Int(star.frame.width), height: Int(star.frame.height))
+                star.frame = CGRect(x: 54 * i, y: 0, width: Int(star.frame.width), height: Int(star.frame.height))
                 
             }, completion: {
                 animationFinished in
                 UIImageView.animate(withDuration : 0.2, delay : 0, options: UIViewAnimationOptions.curveLinear, animations: {
-                    star.frame = CGRect(x : 50 * i, y : 0, width : Int(star.frame.width), height : Int(star.frame.height))
+                    star.frame = CGRect(x : 44 * i, y : 0, width : Int(star.frame.width), height : Int(star.frame.height))
                 })
             })
             
@@ -301,6 +298,7 @@ class DetailPageViewController: UIViewController {
     
     func colorStars(){
         let numberStars = Int(detailItemMO.rating)
+
         print(numberStars)
         for i in 0..<starsCollection.count{
             starsCollection[i].imageView!.image = starsCollection[i].imageView!.image!.withRenderingMode(.alwaysTemplate)
