@@ -197,6 +197,10 @@ class WishListController: UITableViewController, NSFetchedResultsControllerDeleg
                 let descriptionVC = segue.destination as! DetailPageViewController
                 
                 descriptionVC.setDetail(detail: wishlistItems[indexPath.row])
+                
+                if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
+                    descriptionVC.previousViewControllersAppDelegate = appDelegate
+                }
             }
         }
     }
