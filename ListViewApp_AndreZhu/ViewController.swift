@@ -10,6 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var indexTouchedForTab = 0
+    
+    @IBAction func onBooksTouched(_ sender: Any) {
+        indexTouchedForTab = 0
+    }
+    @IBAction func onCartTouched(_ sender: Any) {
+        indexTouchedForTab = 2
+    }
+    @IBAction func onWishlistTouched(_ sender: Any) {
+        indexTouchedForTab = 1
+    }
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,5 +35,14 @@ class ViewController: UIViewController {
     }
 
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        let tabBarVC = segue.destination as! UITabBarController
+        tabBarVC.selectedIndex = indexTouchedForTab
+
+    }
 }
+
 

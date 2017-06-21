@@ -276,18 +276,27 @@
                                 <rect key="frame" x="165" y="229" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Books"/>
+                                <connections>
+                                    <action selector="onBooksTouched:" destination="4Rp-E4-7Du" eventType="touchDown" id="uuc-p3-Evv"/>
+                                    <segue destination="nRZ-jh-WgC" kind="show" id="P7h-xu-rUJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JcQ-ZY-Ofk">
-                                <rect key="frame" x="164" y="381" width="46" height="30"/>
+                                <rect key="frame" x="172" y="381" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Cart"/>
+                                <connections>
+                                    <action selector="onCartTouched:" destination="4Rp-E4-7Du" eventType="touchDown" id="CDP-h0-vMc"/>
+                                    <segue destination="nRZ-jh-WgC" kind="show" id="5ti-Kn-PtB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCJ-1V-NrZ">
                                 <rect key="frame" x="164" y="534" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="39C-kQ-hHR" kind="show" id="Nu1-HE-jW8"/>
+                                    <action selector="onWishlistTouched:" destination="4Rp-E4-7Du" eventType="touchDown" id="GxC-P3-vJN"/>
+                                    <segue destination="nRZ-jh-WgC" kind="show" id="r65-qn-c63"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -300,7 +309,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGV-oT-8u8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2089" y="-293"/>
+            <point key="canvasLocation" x="-3250.4000000000001" y="-1038.5307346326838"/>
         </scene>
         <!--WishList-->
         <scene sceneID="nte-8e-bRL">
@@ -434,7 +443,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="4Rp-E4-7Du" kind="relationship" relationship="viewControllers" id="Ja6-vI-ILy"/>
                         <segue destination="ZlO-aC-h00" kind="relationship" relationship="viewControllers" id="pTu-JL-TCN"/>
                         <segue destination="Sm7-dj-kJC" kind="relationship" relationship="viewControllers" id="vqu-bu-CDj"/>
                         <segue destination="39C-kQ-hHR" kind="relationship" relationship="viewControllers" id="Y1m-eU-Ccl"/>
@@ -442,7 +450,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVL-jg-N4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1926" y="-1182"/>
+            <point key="canvasLocation" x="-2103" y="-1039"/>
         </scene>
         <!--Test Table View Controller-->
         <scene sceneID="Sz3-Jw-67c">
@@ -662,9 +670,9 @@
         <image name="starIcon" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HW2-VM-xjn"/>
+        <segue reference="r65-qn-c63"/>
+        <segue reference="ejA-nN-bZc"/>
         <segue reference="NwZ-Dl-kY1"/>
-        <segue reference="Nu1-HE-jW8"/>
         <segue reference="vYJ-BJ-lfG"/>
     </inferredMetricsTieBreakers>
 </document>
