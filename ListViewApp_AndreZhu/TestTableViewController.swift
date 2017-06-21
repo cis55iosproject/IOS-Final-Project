@@ -64,12 +64,15 @@ class TestTableViewController: UITableViewController {
         //testing
         done = true
         let testData = bookData[0]
-        testItem.author = testData["author"] as! String
-        testItem.title = testData["title"] as! String
-        testItem.desc = testData["desc"] as! String
-        testItem.image = testData["image"] as! UIImage
-        testItem.price = testData["price"] as! Double
-        testItem.rating = 0.0
+        
+        let author = testData["author"] as! String
+        let title = testData["title"] as! String
+        let desc = testData["desc"] as! String
+        let image = testData["image"] as! UIImage
+        let price = testData["price"] as! Double
+        let rating = 0.0
+        
+        testItem = DetailItem(itemTitle: title, itemDesc: desc, itemImg: image, itemAuthor: author, itemPrice: price, itemRating: rating)
         
         
         let indexPath = IndexPath(row: 0, section: 0)
