@@ -18,6 +18,8 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     var searchResultsTitles = [String]()
     var searchController : UISearchController!
     var searchSettings: SearchSettingsMO!
+    var searchText = ""
+    var webSearchHandler = BookAPIHandler()
     
     var listObjDict = [String: [CatalogItemMO]]()
     var listObjTitles = [String]()
@@ -240,8 +242,36 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
     func updateSearchResults(for searchController: UISearchController) {
         if let textToSearch = searchController.searchBar.text{
             filterContentForSearchText(searchText: textToSearch)
+            searchText = textToSearch
             tableView.reloadData()
         }
+    }
+    
+    func makeSearch(){
+        //for when the user hits the search the web cell
+        
+        //will only support title searching for now
+        let text: String = searchText
+        webSearchHandler.getDataFromTitle(title: text, completion: searchCompleted)
+    }
+    
+    func searchCompleted(data: [[String: Any]]){
+        //generate a new CatalogItemMO for each entry
+        let appDel = UIApplication.shared.delegate as! AppDelegate
+        let context = appDel.persistentContainer.viewContext
+        for var book in data{
+            var nextItem = CatalogItemMO(context: context)
+            let title = book["title"] as? String
+            nextItem.author = book["author"] as? String
+            nextItem.title = title
+            nextItem.desc = book["desc"] as? String
+            nextItem.image = book["image"] as? NSData
+            nextItem.price = book["price"] as! Double
+            nextItem.rating = 0.0
+            nextItem.sectionTitle = String(describing: title?[(title?.startIndex)!])
+            
+        }
+        
     }
     
     

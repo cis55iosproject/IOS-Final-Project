@@ -11,7 +11,7 @@ import CoreData
 
 class BookAPIHandler: NSObject {
     
-    let MAXRESULTS = 20
+    let MAXRESULTS = 5
     
     let NYTAPI = "fdb74175992d4ba7a5cf33d15da8b67e"
     
