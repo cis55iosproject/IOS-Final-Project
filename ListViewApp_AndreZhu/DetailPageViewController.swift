@@ -81,8 +81,7 @@ class DetailPageViewController: UIViewController {
         
         itemTitle.layer.cornerRadius = 5
         itemDescription.layer.cornerRadius = 5
-        
-        
+
         defaultStarTint = starsCollection[0].imageView!.tintColor
         
 
