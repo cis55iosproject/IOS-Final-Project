@@ -15,10 +15,9 @@ class DetailPageViewController: UIViewController {
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var itemDescription: UITextView!
 
-
-    @IBOutlet var itemUserRating: CosmosView!
+    //@IBOutlet var itemUserRating: CosmosView!
     
-    @IBOutlet weak var itemRateButton: UIButton!
+    //@IBOutlet weak var itemRateButton: UIButton!
     @IBOutlet weak var itemWishlistButton: UIButton!
     
     @IBOutlet weak var itemAuthor: UILabel!
@@ -33,13 +32,63 @@ class DetailPageViewController: UIViewController {
     var detailItemMO: ToDoItemMO!
     var detailItem: DetailItem!
     
+    var myTableViewController : TableViewController!
+    
+    
+    var defaultStarTint : UIColor!
+    
+    @IBOutlet var starsCollection: [UIButton]!
+    
+
+    @IBAction func onFiveStarTouch(_ sender: Any) {
+        detailItemMO.rating = 5
+        colorStars()
+        myTableViewController.saveChanges()
+    }
+    
+
+    @IBAction func OnFourStarTouch(_ sender: Any) {
+        detailItemMO.rating = 4
+        colorStars()
+        myTableViewController.saveChanges()
+    }
+    
+
+    @IBAction func OnThreeStarTouch(_ sender: Any) {
+        detailItemMO.rating = 3
+        colorStars()
+        myTableViewController.saveChanges()
+    }
+    
+
+    @IBAction func OnTwoStarTouch(_ sender: Any) {
+        detailItemMO.rating = 2
+        colorStars()
+        myTableViewController.saveChanges()
+    }
+    
+
+    @IBAction func OnOneStarTouch(_ sender: Any) {
+        detailItemMO.rating = 1
+        colorStars()
+        myTableViewController.saveChanges()
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         itemTitle.layer.cornerRadius = 5
         itemDescription.layer.cornerRadius = 5
         
+        
+        defaultStarTint = starsCollection[0].imageView!.tintColor
+        
 
+        self.animateStars()
+        self.colorStars()
+        
     }
     
     
@@ -59,7 +108,7 @@ class DetailPageViewController: UIViewController {
         self.itemAuthor.text = self.detailItem.author
         self.itemImageView.image = detailItem.image
         
-        self.itemUserRating.text = String(self.detailItem.rating)
+        //self.itemUserRating.text = String(self.detailItem.rating)
         
         if cameFromWL{
             isInWishlist = true
@@ -78,10 +127,12 @@ class DetailPageViewController: UIViewController {
         
         //animate items on to screen
     }
+    
+    /*
     @IBAction func changeRating(_ sender: Any) {
         
-        detailItemMO.rating = itemUserRating.rating
-         detailItemMO.rating = CosmosAccessibility.accessibilityIncrement(self.itemUserRating.rating, settings: <#T##CosmosSettings#>)
+        //detailItemMO.rating = itemUserRating.rating
+         //detailItemMO.rating = CosmosAccessibility.accessibilityIncrement(self.itemUserRating.rating, settings: <#T##CosmosSettings#>)
         //To save stars in MO
         //detailTableViewController.saveState()
 
@@ -94,7 +145,7 @@ class DetailPageViewController: UIViewController {
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
             appDelegate.saveContext()
         }*/
-    }
+    }*/
     
     
     @IBAction func wishlistAction(_ sender: Any) {
@@ -216,6 +267,46 @@ class DetailPageViewController: UIViewController {
             cartVC.addBookToCart(book: detailItemMO as! CatalogItemMO)
         }
     }
+ 
+    
+    
+    
+    func animateStars(){
+        for star in starsCollection{
+            star.frame = CGRect(x: -100, y: 0, width: Int(star.frame.width), height: Int(star.frame.height))
+            
+        }
+        for i in 0..<starsCollection.count{
+            let star = starsCollection[i]
+            UIImageView.animate(withDuration: 0.4, delay: (1 - 0.2 * Double(i)), options: UIViewAnimationOptions.curveLinear, animations: {
+                star.frame = CGRect(x: 60 * i, y: 0, width: Int(star.frame.width), height: Int(star.frame.height))
+                
+            }, completion: {
+                animationFinished in
+                UIImageView.animate(withDuration : 0.2, delay : 0, options: UIViewAnimationOptions.curveLinear, animations: {
+                    star.frame = CGRect(x : 50 * i, y : 0, width : Int(star.frame.width), height : Int(star.frame.height))
+                })
+            })
+            
+            
+        }
+    }
+    
+    func colorStars(){
+        let numberStars = Int(detailItemMO.rating)
+        print(numberStars)
+        for i in 0..<starsCollection.count{
+            starsCollection[i].imageView!.image = starsCollection[i].imageView!.image!.withRenderingMode(.alwaysTemplate)
+            if(i + 1 > numberStars){
+                starsCollection[i].imageView!.tintColor = UIColor.gray
+            }else{
+                starsCollection[i].imageView!.tintColor = UIColor.yellow
+            }
+            
+        }
+        
+    }
+ 
  
 
 }

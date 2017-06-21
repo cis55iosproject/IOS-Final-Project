@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nRZ-jh-WgC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nRZ-jh-WgC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -166,25 +166,55 @@
                                     <segue destination="H2P-Vn-8Ks" kind="show" identifier="AddToCart" id="HW2-VM-xjn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wQ-rT-SrE">
-                                <rect key="frame" x="152" y="579" width="70" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                <state key="normal" title="Rate">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeRating:" destination="PKA-aX-khn" eventType="primaryActionTriggered" id="YHl-qB-PkO"/>
-                                </connections>
-                            </button>
                             <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dj7-11-Rbx">
                                 <rect key="frame" x="103" y="68" width="161" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hGC-bo-SUP" customClass="CosmosView" customModule="ListViewApp_AndreZhu" customModuleProvider="target">
-                                <rect key="frame" x="124" y="557" width="131" height="26"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IBb-Vl-qtc">
+                                <rect key="frame" x="53" y="482" width="246" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E9J-To-T80">
+                                        <rect key="frame" x="8" y="16" width="38" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="starIcon"/>
+                                        <connections>
+                                            <action selector="OnOneStarTouch:" destination="PKA-aX-khn" eventType="touchDown" id="Nwy-T9-MF6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alj-Im-Kxm">
+                                        <rect key="frame" x="54" y="16" width="38" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="starIcon"/>
+                                        <connections>
+                                            <action selector="OnTwoStarTouch:" destination="PKA-aX-khn" eventType="touchDown" id="j1O-4Q-nFs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOB-gq-Ye8">
+                                        <rect key="frame" x="100" y="16" width="38" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="starIcon"/>
+                                        <connections>
+                                            <action selector="OnThreeStarTouch:" destination="PKA-aX-khn" eventType="touchDown" id="aPO-HX-tsq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1m-4f-KF1">
+                                        <rect key="frame" x="149" y="16" width="38" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="starIcon"/>
+                                        <connections>
+                                            <action selector="OnFourStarTouch:" destination="PKA-aX-khn" eventType="touchDown" id="Our-2X-4oX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLs-Dj-IQ6">
+                                        <rect key="frame" x="200" y="16" width="38" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="starIcon"/>
+                                        <connections>
+                                            <action selector="onFiveStarTouch:" destination="PKA-aX-khn" eventType="touchDown" id="70X-Ts-8LX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -196,11 +226,13 @@
                         <outlet property="itemAuthor" destination="YOw-0C-HOP" id="DcO-9s-Kec"/>
                         <outlet property="itemDescription" destination="5gT-gh-w1a" id="Z4i-7G-6zK"/>
                         <outlet property="itemImageView" destination="dj7-11-Rbx" id="AcD-wL-W8P"/>
-                        <outlet property="itemRateButton" destination="9wQ-rT-SrE" id="qqL-7P-UW8"/>
                         <outlet property="itemTitle" destination="D5G-tP-nVE" id="WVB-sY-d0m"/>
-                        <outlet property="itemUserRating" destination="hGC-bo-SUP" id="L5I-7q-a5g"/>
                         <outlet property="itemWishlistButton" destination="42g-53-OLT" id="iga-tA-dIk"/>
-                        <outlet property="starRate" destination="hGC-bo-SUP" id="awf-oA-Bmp"/>
+                        <outletCollection property="starsCollection" destination="E9J-To-T80" collectionClass="NSMutableArray" id="HdQ-S4-8Pf"/>
+                        <outletCollection property="starsCollection" destination="Alj-Im-Kxm" collectionClass="NSMutableArray" id="yNh-z3-gnK"/>
+                        <outletCollection property="starsCollection" destination="uOB-gq-Ye8" collectionClass="NSMutableArray" id="Nr7-RV-5cr"/>
+                        <outletCollection property="starsCollection" destination="g1m-4f-KF1" collectionClass="NSMutableArray" id="81x-7g-7If"/>
+                        <outletCollection property="starsCollection" destination="JLs-Dj-IQ6" collectionClass="NSMutableArray" id="b1Y-qp-sCa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNW-kR-O5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -602,6 +634,7 @@
     <resources>
         <image name="WishListHeart" width="128" height="128"/>
         <image name="shopping-cart-add-128x128" width="128" height="128"/>
+        <image name="starIcon" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vYJ-BJ-lfG"/>

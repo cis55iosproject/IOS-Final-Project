@@ -572,6 +572,8 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
                 var objTitles : [String]
                 var objKey : String
                 
+                descriptionVC.myTableViewController = self
+                
                 if searchController.isActive{
                     objDict = searchResultsDict
                     objTitles = searchResultsTitles
