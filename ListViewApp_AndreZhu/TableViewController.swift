@@ -515,6 +515,11 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
             appDelegate.saveContext()
         }
     }
+    
+    func bookSearchDone(bookData: [[String:Any]]){
+        //testing
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -388,6 +388,67 @@
             </objects>
             <point key="canvasLocation" x="-1236" y="-761"/>
         </scene>
+        <!--Test Table View Controller-->
+        <scene sceneID="Sz3-Jw-67c">
+            <objects>
+                <tableViewController storyboardIdentifier="TEST" id="zq5-ZL-2P8" customClass="TestTableViewController" customModule="ListViewApp_AndreZhu" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="213" sectionHeaderHeight="28" sectionFooterHeight="28" id="yEX-Or-7Gx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TestCell" rowHeight="160" id="RXP-hb-54g" customClass="TableViewCell" customModule="ListViewApp_AndreZhu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="160"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="RXP-hb-54g" id="sk0-LY-xfV">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="159"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F7S-37-9Wh">
+                                            <rect key="frame" x="8" y="8" width="98" height="116"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Title" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJK-Qj-woG">
+                                            <rect key="frame" x="114" y="7" width="213" height="48"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="price" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kem-88-1vj">
+                                            <rect key="frame" x="249" y="111" width="78" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Author" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3f-Oi-sK6">
+                                            <rect key="frame" x="114" y="63" width="186" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itemAuthor" destination="N3f-Oi-sK6" id="aE6-SB-w89"/>
+                                    <outlet property="itemImage" destination="F7S-37-9Wh" id="5AQ-r7-gxx"/>
+                                    <outlet property="itemPrice" destination="Kem-88-1vj" id="6Nd-BE-iiF"/>
+                                    <outlet property="itemText" destination="jJK-Qj-woG" id="phr-30-8G4"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zq5-ZL-2P8" id="reD-w2-4x4"/>
+                            <outlet property="delegate" destination="zq5-ZL-2P8" id="yCB-tg-Bv8"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nGK-Z1-LhD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2778.4000000000001" y="-2580.3598200899551"/>
+        </scene>
         <!--Cart View Controller-->
         <scene sceneID="5tK-gd-mVo">
             <objects>
