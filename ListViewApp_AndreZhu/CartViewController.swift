@@ -13,14 +13,14 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     //@IBOutlet weak var cartTableView: CartTableView!
     
-    @IBOutlet var Total: UILabel!
-    //tax should be 8.5%    
-    @IBOutlet var Tax: UILabel!
-    @IBOutlet var Subtotal: UILabel!
+    @IBOutlet var totalLabel: UILabel!
+    @IBOutlet var taxLabel: UILabel!
+    @IBOutlet var subtotalLabel: UILabel!
     @IBOutlet weak var cartTableView : UITableView!
     var booksInCart : [CartItemMO] = []
     
     let cellReuseIdentifier = "CartCell"
+    let taxRate = 0.085
     
     var fetchResultsController : NSFetchedResultsController<CartItemMO>!
     
@@ -69,6 +69,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
         }
         
+        
+        self.updateTotals()
         
  
     }
@@ -147,6 +149,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
 
+    
 
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>){
         cartTableView.beginUpdates()
@@ -184,6 +187,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         
         cartTableView.endUpdates()
+        
+        self.updateTotals()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -207,6 +212,26 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
 
             // handle delete (by removing the data from your array and updating the tableview)
         }
+    }
+    
+    func updateTotals(){
+        var subtotal : Double = 0
+        var tax : Double = 0
+        var total : Double = 0
+        
+        
+        for book in booksInCart{
+            subtotal += book.price
+            
+        }
+        
+        tax = subtotal * taxRate
+        total = subtotal + tax
+        
+        subtotalLabel.text = String(subtotal)
+        taxLabel.text = String(tax)
+        totalLabel.text = String(total)
+        
     }
     
 
