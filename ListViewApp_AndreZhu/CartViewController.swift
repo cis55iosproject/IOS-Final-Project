@@ -121,6 +121,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.itemImage?.image = UIImage(data: cellItem.image as! Data)
         cell.itemText?.text = cellItem.title!
         cell.itemAuthor?.text = cellItem.author
+        cell.itemPrice?.text = "$" + String(cellItem.price)
         
         print("Cell for row at running for: " + cellItem.title!)
         
@@ -228,9 +229,9 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         tax = subtotal * taxRate
         total = subtotal + tax
         
-        subtotalLabel.text = "$ " + String(subtotal)
-        taxLabel.text = "$ " + String(tax)
-        totalLabel.text = "$ " + String(total)
+        subtotalLabel.text = "$" + String(subtotal)
+        taxLabel.text = "$" + String(tax)
+        totalLabel.text = "$" + String(total)
         
     }
     
