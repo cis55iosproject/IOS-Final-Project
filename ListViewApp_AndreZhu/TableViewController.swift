@@ -259,6 +259,9 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
         //generate a new CatalogItemMO for each entry
         let appDel = UIApplication.shared.delegate as! AppDelegate
         let context = appDel.persistentContainer.viewContext
+        searchResults = [CatalogItemMO]()
+        
+        
         for var book in data{
             var nextItem = CatalogItemMO(context: context)
             let title = book["title"] as? String
@@ -269,9 +272,12 @@ class TableViewController: UITableViewController, UISearchResultsUpdating, NSFet
             nextItem.price = book["price"] as! Double
             nextItem.rating = 0.0
             nextItem.sectionTitle = String(describing: title?[(title?.startIndex)!])
-            
+            searchResults.append(nextItem)
         }
         
+        searchResultsDict = createAlphaDict(objList: searchResults)
+        searchResultsTitles = createTitles(objDict: searchResultsDict)
+        tableView.reloadData()
     }
     
     
