@@ -198,6 +198,7 @@
                         <outlet property="itemImageView" destination="dj7-11-Rbx" id="AcD-wL-W8P"/>
                         <outlet property="itemRateButton" destination="9wQ-rT-SrE" id="qqL-7P-UW8"/>
                         <outlet property="itemTitle" destination="D5G-tP-nVE" id="WVB-sY-d0m"/>
+                        <outlet property="itemUserRating" destination="hGC-bo-SUP" id="L5I-7q-a5g"/>
                         <outlet property="itemWishlistButton" destination="42g-53-OLT" id="iga-tA-dIk"/>
                         <outlet property="starRate" destination="hGC-bo-SUP" id="awf-oA-Bmp"/>
                     </connections>

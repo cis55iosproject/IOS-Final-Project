@@ -15,6 +15,7 @@ class DetailPageViewController: UIViewController {
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var itemDescription: UITextView!
 
+
     @IBOutlet var itemUserRating: CosmosView!
     
     @IBOutlet weak var itemRateButton: UIButton!
@@ -78,21 +79,21 @@ class DetailPageViewController: UIViewController {
         //animate items on to screen
     }
     @IBAction func changeRating(_ sender: Any) {
-        let minRating = 0.0
-        let maxRating = 10.0
         
-        var rating = Double(itemUserRating.text)!
-        rating = min(maxRating, rating)
-        rating = max(minRating, rating)
+        detailItemMO.rating = itemUserRating.rating
+         detailItemMO.rating = CosmosAccessibility.accessibilityIncrement(self.itemUserRating.rating, settings: <#T##CosmosSettings#>)
+        //To save stars in MO
+        //detailTableViewController.saveState()
+
         
-        if rating == detailItemMO.rating{
+       /* if rating == detailItemMO.rating{
             return
         }
         
         detailItemMO.rating = rating
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
             appDelegate.saveContext()
-        }
+        }*/
     }
     
     
